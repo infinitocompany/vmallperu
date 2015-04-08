@@ -5,7 +5,7 @@ $nav = array(
 	"10-Configuraci&oacute;n", "10-Acceso", "11-Apariencia", "12-Empresa", "13-Redes Sociales", "14-Tipo de Cambio", 
 	"20-P&aacute;gina Web", "20-P&aacute;gina Web", "21-Banner", "22-Men&uacute;", "23-SubMen&uacute;",
 	/*"30-Informaci&oacute;n", "30-Clientes", "31-Suscriptores", "32-Costos de Envio",*/
-	"40-Art&iacute;culo", "40-Productos", "41-Anunciantes", "42-Categor&iacute;as", "43-SubCategor&iacute;as",
+	"40-Art&iacute;culo", "40-Productos", "41-Anunciantes", "42-Categor&iacute;as", "43-SubCategor&iacute;as", "44-Catalogo",
 	"50-Ordenes", "50-Pedidos", "51-Usuarios Web"
 	//"80-News", "80-Themes", "81-Comments"
 );
