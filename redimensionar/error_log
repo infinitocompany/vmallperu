@@ -1,0 +1,10 @@
+[19-Aug-2012 12:11:11] PHP Warning:  imagecreatefromjpeg(./redimensionar/imagen/aprilia classic.jpg) [<a href='function.imagecreatefromjpeg'>function.imagecreatefromjpeg</a>]: failed to open stream: No such file or directory in /home/infinito/public_html/cms/redimensionar/index.php on line 11
+[19-Aug-2012 12:11:11] PHP Warning:  getimagesize(./redimensionar/imagen/aprilia classic.jpg) [<a href='function.getimagesize'>function.getimagesize</a>]: failed to open stream: No such file or directory in /home/infinito/public_html/cms/redimensionar/index.php on line 18
+[19-Aug-2012 12:11:11] PHP Warning:  Division by zero in /home/infinito/public_html/cms/redimensionar/index.php on line 21
+[19-Aug-2012 12:11:11] PHP Warning:  Division by zero in /home/infinito/public_html/cms/redimensionar/index.php on line 22
+[19-Aug-2012 12:11:11] PHP Warning:  imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions in /home/infinito/public_html/cms/redimensionar/index.php on line 50
+[19-Aug-2012 12:11:11] PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in /home/infinito/public_html/cms/redimensionar/index.php on line 53
+[19-Aug-2012 12:11:11] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/infinito/public_html/cms/redimensionar/index.php on line 56
+[19-Aug-2012 12:11:11] PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in /home/infinito/public_html/cms/redimensionar/index.php on line 62
+[19-Aug-2012 12:11:11] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/infinito/public_html/cms/redimensionar/index.php:11) in /home/infinito/public_html/cms/redimensionar/index.php on line 69
+[19-Aug-2012 12:11:11] PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in /home/infinito/public_html/cms/redimensionar/index.php on line 70

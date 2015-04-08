@@ -1,0 +1,176 @@
+/*-----------------------------------
+	Navbar LogIn
+-------------------------------------*/
+.navbar-right img{
+	margin-top: -7px; /*Cambiar según los iconos*/
+}
+/*-----------------------------------
+	Breadcrumb
+-------------------------------------*/
+.box-gray-lighter{
+	min-height: 60px;
+	padding:10px;
+}
+.breadcrumb {
+	 padding: 0; 
+	 margin-bottom: 0; 
+}
+.breadcrumb>li+li:before {
+	content: "\00bb" !important;
+}
+/*-----------------------------------
+	Banner content
+-------------------------------------*/
+.box-quiero-header{
+	color:#DE3A1F;
+	background-image: url("../img/canvas-banner/slider2.jpg");
+	background-size: 100% ;
+    background-repeat: no-repeat;
+    padding-top: 20px;
+    padding-bottom: 36px;
+}
+.box-quiero-header h1{
+    margin-top: 5px; 
+    font-size: 33px;
+    padding-top: 3px;
+}
+.box-quiero-header .box-red-lighter{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	/* IE 8 */
+	  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+	  /* IE 5-7 */
+	  filter: alpha(opacity=90);
+	  /* Netscape */
+	  -moz-opacity: 0.9;
+	  /* Safari 1.x */
+	  -khtml-opacity: 0.9;
+	  /* Good browsers */
+	  opacity: 0.9;
+}
+.box-quiero-search-up{
+	padding-left: 0;
+	padding-right: 30px;
+}
+.box-quiero-header-up{
+	padding-left: 0;
+	padding-right: 8px;
+}
+/*-----------------------------------
+	Register
+-------------------------------------*/
+.box-item-right{
+	margin-top: 50px;
+	padding-left: 40px;
+	padding-right: 40px;
+	text-align: justify;
+}
+
+/*-----------------------------------
+	Content left: register
+-------------------------------------*/
+.canvas-content div.inline { 
+	float:right; 
+}
+.canvas-content .box-item-left { 
+	margin-bottom: 20px; 
+}
+.canvas-content .box-item-bag { 
+	margin-bottom: 20px; 
+	margin-top: 20px;
+}
+/*-----------------------------------
+	Content  right items
+-------------------------------------*/
+.box-item-content div{
+    color: #fff;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.box-item-row{
+    padding-bottom: 30px;
+}
+.img-options{
+    cursor: pointer; 	
+}
+.box-description-prod-up h2{
+    color:#DE3A1F;
+    margin-bottom: 3px !important;
+    margin-top: 3px;
+
+}
+.box-description-prod-up{	
+    text-align: justify;
+}
+.box-description-prod-down .megusta{
+    margin-top: 8px;
+    margin-right: 5px;
+}
+.content-left-product-down{
+    margin-top: 30px !important;
+}
+
+/*-----------------------------------
+	Content DayOffers
+-------------------------------------*/
+.box-description-offer-down .megusta{
+	margin-top: 8px;
+	margin-right: 5px;
+	margin-left: 7px;
+}
+.box-description-offer-down .inline{
+	float: left !important;
+}
+.box-description-offer-down h4{
+	margin-bottom: 60px;
+}
+.h1-huge{
+	font-size: 80px;
+	color:#DE3A1F;
+}
+.h1-medium{
+	margin-top: 28px;
+	margin-left: 10px;
+	color:#DE3A1F;
+}
+
+.carousel {
+    padding: 0px 40px 0px 30px;
+}
+/* The controlsy */
+.carousel-control {
+	left: -12px;  
+	margin-top: -40px !important;
+}
+.carousel-ctrl.right {
+	right: 12px;
+	background:none; 
+	margin-top: -40px !important;
+
+}
+.carousel-ctrl.left{
+	background:none; 
+}
+.box-offer-right-down{
+	padding:10px;
+}
+.box-offer-right-down div{
+	padding-left:3px;
+	padding-right:3px;
+	padding-bottom: 5px;
+}
+.box-offer-left-desc a{
+	color:#333;
+
+}
+@media screen and (max-width: 767px) {
+   .box-item-right{
+		padding:0;
+	}
+}
+@media screen and (max-width: 480px) {
+	.box-quiero-header h1{ 
+		margin-top: 10px;
+    	font-size: 26px;
+	}
+}

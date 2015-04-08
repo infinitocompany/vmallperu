@@ -1,0 +1,137 @@
+ input[type="text-large"],  input[type="text-half"], input[type="password-large"],.canvas-content input[type="submit"], .modal-content input[type="submit"],textarea,  input[type="captcha"]{
+	min-height: 46px;
+	outline: none;
+	font-size: 16px;
+	padding: 5px;
+	color: #ddd;
+	/*font-weight: 100;*/
+	border:none;
+	width: 100%;
+	margin-bottom: 20px;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #ddd;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #ddd;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #ddd;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:  #ddd;    
+}
+/*#F6F5F5;*/
+
+/*-----------------------------------
+	LogIn
+-------------------------------------*/
+.dropdown-login .form-control{
+	margin-top: 5px;
+}
+.dropdown-login a, .dropdown-login p{
+	margin-top: 5px;
+}
+/*-----------------------------------
+	Search
+-------------------------------------*/
+ .canvas-content input[type="text-large"], .canvas-content input[type="text-half"],.canvas-content input[type="password-large"],.canvas-content input[type="submit"] {
+	background-color: #DE3A1F;
+}
+
+.box-search .btn-default {
+	color: #333;
+	background-color: transparent;
+	border-color: transparent; 
+	width: 100%;
+	border:none;
+}
+.box-search .btn-default span {
+	
+	outline: none;
+}
+.box-search .btn-default:hover {
+	color: #fff;
+	border:none;
+}
+ .box-search .btn-default:focus{
+	outline: none;
+}
+
+/*-----------------------------------
+	Content
+-------------------------------------*/
+.canvas-content h2{
+	margin-bottom: 30px;
+}
+
+.canvas-content input[type="text-large"] ,.canvas-content input[type="text-half"],.canvas-content input[type="password-large"]{
+	margin-bottom: 20px;
+		padding-left: 15px;
+}
+
+.canvas-content input[type="submit"] {
+	width:180px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+.btnSubmit {
+	margin-top: 50px;
+	cursor: pointer;
+	position: relative;	
+}
+.btnSubmit:hover {
+	top: 2px;
+}
+
+/*-----------------------------------
+	Modal contactus
+-------------------------------------*/
+
+.modal-content input[type="text"] {
+	-webkit-border-radius: 0px;
+	-moz-border-radius:0px;
+	border-radius: 0px;
+}
+textarea{
+	min-height: 120px;
+}
+.modal-content input[type="captcha"] {
+	min-height: 20px !important;
+	max-width: 307px;
+}
+/*.modal-container input[type="checkbox"] {
+	margin-bottom: 20px;
+}*/
+.modal-content input[type="submit"]{
+	background-color: #8c8c8c;
+	color: #fff;
+	min-width: 140px;
+}
+.btnSubmitModal {
+	cursor: pointer;
+	position: relative;	
+}
+.btnSubmitModal:hover {
+	top: 2px;
+}
+
+/*-----------------------------------
+	Modal notificaciones
+-------------------------------------*/
+#modalItemOpt label{
+	margin-top: 10px;
+}
+#modalItemOpt input{
+	cursor: pointer;
+}
+/*-----------------------------------
+	DayOffers
+-------------------------------------*/
+.box-btn-comprar input[type="submit"]{
+	min-height: 35px;
+	
+}

@@ -1,0 +1,1127 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+	font-family: 'Andrew_Ward';
+	font-weight: normal;
+	src: local('Andrew_Ward'), url('fonts/Andrew_Ward.ttf') format('truetype');
+	src: url('fonts/Andrew_Ward.eot')\9;
+}
+
+body {
+	color: #fff;
+	font: 12px Arial;
+	background: #010216 url(../img/bg_web.jpg) center top no-repeat
+}
+
+#container {
+	width: 960px;
+	margin: auto;
+	text-align: left
+}
+
+#header {
+	background: #000;
+	padding-top: 20px
+}
+
+#header h1 {
+	height: 0;
+	margin: 0;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -5000px
+}
+
+#header .logo {
+	float: left;
+	width: 99px;
+	display: block;
+	padding: 0 40px
+}
+
+#header .advertising {
+	float: left;
+	width: 744px;
+	height: 90px;
+	padding: 5px;
+	background: #969696
+}
+
+#header ul {
+	float: left;
+	height: 33px;
+	padding-top: 20px
+}
+
+#header ul li {
+	float: left
+}
+
+#header ul li.menu_space {
+	width: 2px;
+	height: 33px;
+	display: block;
+	background: url(../img/bg_menu_space.jpg) repeat-x
+}
+
+#header ul li a {
+	color: #AAA;
+	width: 95px;
+	height: 33px;
+	display: block;
+	font-weight: 700;
+	line-height: 33px;
+	text-align: center;
+	text-transform: uppercase;
+	background:url(../img/bg_menu_fondo.jpg) repeat-x
+}
+
+#header ul li a:hover, #header ul li a.on {
+	color: #009cde;
+	background: #000
+}
+
+#header ul li a.user-register {
+	width: 180px;
+	color: #fd5d03
+}
+
+#body {
+	float: left;
+	width: 790px;
+	padding-bottom: 20px
+}
+
+#body #menu {
+	width: 763px;
+	height: 127px;
+	margin: 0 auto;
+	background: #000 url(../img/bg_menu_sociales.jpg)
+}
+
+#body #menu ul {
+	float: left;
+	margin: 5px 0 10px 30px
+}
+
+#body #menu ul li {
+	float: left
+}
+
+#body #menu ul li a {
+	color: #3E83A2;
+	padding: 0 12px;
+	font-size: 16px;
+	font-weight: 700;
+	text-shadow: 0px 0px 5px #000, 0px 0px 5px #000, 0px 0px 5px #000, 0px 0px 5px #000, 0px 0px 5px #000, 0px 0px 5px #000, 0px 0px 5px #000, 0px 0px 5px #000, 0px 0px 5px #000
+}
+
+#body #menu ul li a:hover {
+	color: #FFF;
+}
+
+#body #menu .input_search {
+	float: right;
+	width: 220px;
+	height: 22px;
+	margin: 20px;
+	position: relative;
+	background: url(../img/bg_bucar_izq.png) left no-repeat
+}
+
+#body #menu .input_search input {
+	border: none;
+	width: 200px;
+	height: 18px;
+	color: #009ee0;
+	font: 12px Arial;
+	font-weight: 700;
+	margin-left: 10px;
+	background: #012258;
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000
+}
+
+#body #menu .input_search span {
+	top: 0;
+	right: 0;
+	width: 10px;
+	height: 22px;
+	position: absolute;
+	background: url(../img/bg_bucar_der.png)
+}
+
+#body #content {
+	width: 747px;
+	margin: auto
+}
+
+#body #banners {
+	width: 730px;
+	margin: 0 auto 20px
+}
+
+#body #banners #banner_image {
+	width: 721px;
+	height: 358px;
+	margin: 0 auto 5px;
+	position: relative;
+	border-top: 1px solid #fff;
+	background: #000 url(../img/bg_galeria_foto_borde.png) top left no-repeat
+}
+
+#body #banners #banner_image img {
+	width: 719px;
+	height: 358px;
+	margin-left: 1px
+}
+
+#body #banners #banner_image span {
+	top: 0;
+	right: 0;
+	width: 1px;
+	height: 359px;
+	position: absolute;
+	background: url(../img/bg_galeria_foto_borde.png)
+}
+
+#body #banners #banner_container {
+	width: 652px;
+	height: 74px;
+	overflow: hidden;
+	margin: 6px auto 0;
+	position: relative;
+}
+
+#body #banners #banner_container ul li {
+	float: left;
+	padding-right: 3px;
+}
+
+#body #banners #banner_container ul li img {
+	width: 128px;
+	height: 62px;
+	opacity: 0.5;
+	cursor: pointer;
+	filter: alpha(opacity=50)
+}
+
+#body #banners #banner_container ul li img:hover {
+	opacity: 1;
+	filter: alpha(opacity=100)
+}
+
+#body #banners #banner_container .bg_galeria_sup_on {
+	height: 12px;
+	display: block;
+	background: url(../img/bg_galeria_sup_on.jpg)
+}
+
+#body #banners #banner_container .bg_galeria_sup_off {
+	height: 12px;
+	display: block;
+	background: url(../img/bg_galeria_sup_off.jpg)
+}
+
+#body #banners #banner_scroll {
+	position: relative;
+}
+
+#body #banners #banner_scroll a.mouseover_left {
+	left: -8px;
+	top: -74px;
+	width: 43px;
+	height: 84px;
+	position: absolute;
+	background: url(../img/iconos.png) -249px -47px
+}
+
+#body #banners #banner_scroll a.mouseover_left:hover {
+	background: url(../img/iconos.png) -342px -47px
+}
+
+#body #banners #banner_scroll a.mouseover_right {
+	left: 695px;
+	top: -74px;
+	width: 43px;
+	height: 84px;
+	position: absolute;
+	background: url(../img/iconos.png) -292px -47px
+}
+
+#body #banners #banner_scroll a.mouseover_right:hover {
+	background: url(../img/iconos.png) -389px -47px
+}
+
+#body #albums {
+	width: 747px;
+	margin: 0 auto 20px
+}
+
+#body #albums #album_viewer {
+	width: 745px;
+	height: 374px;
+	margin-left: 1px;
+	position: relative;
+	border-top: 1px solid #BFBFBF;
+	background: #000 url(../img/bg_album_borde.png) top left no-repeat
+}
+
+#body #albums #album_viewer #album_container {
+	width: 560px;
+	height: 352px;
+	overflow: hidden;
+	margin: 10px auto;
+	position: relative;
+}
+
+#body #albums #album_viewer #album_container ul li {
+	float: left;
+	width: 140px;
+}
+
+#body #albums #album_viewer #album_container ul li ul li {
+	width: 140px;
+	height: 88px;
+	position: relative;
+}
+
+#body #albums #album_viewer #album_container ul li ul li div {
+	top: 10px;
+	left: 160px;
+	width: 200px;
+	height: 120px;
+	display: none;
+	background: none;
+	font-weight: 700;
+	position: absolute;
+}
+
+#body #albums #album_viewer #album_container ul li ul li:hover div {
+	display: block;
+}
+
+#body #albums #album_viewer #album_container ul li ul li img {
+	width: 138px;
+	height: 86px;
+	opacity: 0.25;
+	cursor: pointer;
+	border: 1px solid #0045AE;
+	filter: alpha(opacity=25)
+}
+
+#body #albums #album_viewer #album_scroll {
+	position: relative;
+}
+
+#body #albums #album_viewer #album_scroll a.mouseover_left {
+	left: 26px;
+	top: -207px;
+	width: 23px;
+	height: 39px;
+	position: absolute;
+	background: url(../img/iconos.png) -4px -3px
+}
+
+#body #albums #album_viewer #album_scroll a.mouseover_left:hover {
+	background: url(../img/iconos.png) -64px -3px
+}
+
+#body #albums #album_viewer #album_scroll a.mouseover_right {
+	right: 26px;
+	top: -207px;
+	width: 23px;
+	height: 39px;
+	position: absolute;
+	background: url(../img/iconos.png) -37px -3px
+}
+
+#body #albums #album_viewer #album_scroll a.mouseover_right:hover {
+	background: url(../img/iconos.png) -97px -3px
+}
+
+#body #albums #album_viewer span {
+	top: 0;
+	right: 0;
+	width: 1px;
+	height: 373px;
+	position: absolute;
+	background: url(../img/bg_album_borde.png)
+}
+
+#body #albums span.gallery_top {
+	width: 672px;
+	height: 4px;
+	opacity: 0.75;
+	display: block;
+	background: #0077AB;
+	margin: 0 auto 13px;
+	position: relative;
+	filter: alpha(opacity=75)
+}
+
+#body #albums #gallery_container {
+	width: 678px;
+	height: 66px;
+	overflow: hidden;
+	margin: 8px auto 0;
+	position: relative;
+}
+
+#body #albums #gallery_container ul li {
+	float: left;
+	width: 132px;
+	height: 66px;
+	opacity: 0.75;
+	margin-right: 3px;
+	background: #0077AB;
+	filter: alpha(opacity=75)
+}
+
+#body #albums #gallery_container ul.detalle li {
+	opacity: 1;
+	background: #000;
+	filter: alpha(opacity=100)
+}
+
+#body #albums #gallery_container ul li img {
+	width: 130px;
+	height: 65px;
+	opacity: 0.4;
+	cursor: pointer;
+	margin: 1px 0 0 1px;
+	filter: alpha(opacity=40)
+}
+
+#body #albums #gallery_container ul li img:hover {
+	opacity: 1;
+	filter: alpha(opacity=100)
+}
+
+#body #albums #gallery_container ul li.on {
+	background: url(../img/bg_album_detalle_borde.png)
+}
+
+#body #albums #gallery_container ul li.on img {
+	opacity: 1;
+	filter: alpha(opacity=100)
+}
+
+#body #albums #gallery_scroll {
+	position: relative;
+}
+
+#body #albums #gallery_scroll a.mouseover_left {
+	left: -11px;
+	top: -80px;
+	width: 43px;
+	height: 84px;
+	opacity: 0.75;
+	position: absolute;
+	filter: alpha(opacity=75);
+	background: url(../img/iconos.png) -249px -47px
+}
+
+#body #albums #gallery_scroll a.mouseover_left:hover {
+	background: url(../img/iconos.png) -342px -47px
+}
+
+#body #albums #gallery_scroll a.mouseover_right {
+	right: -7px;
+	top: -80px;
+	width: 43px;
+	height: 84px;
+	opacity: 0.75;
+	position: absolute;
+	filter: alpha(opacity=75);
+	background: url(../img/iconos.png) -292px -47px
+}
+
+#body #albums #gallery_scroll a.mouseover_right:hover {
+	background: url(../img/iconos.png) -389px -47px
+}
+
+#body #albums #album_image {
+	width: 747px;
+	height: 372px;
+	margin: 0 auto 2px;
+	position: relative;
+	border-top: 1px solid #fff;
+	background: #000 url(../img/bg_album_borde.png) top left no-repeat
+}
+
+#body #albums #album_image img {
+	width: 745px;
+	height: 372px;
+	margin-left: 1px
+}
+
+#body #albums #album_image iframe {
+	margin-left: 1px;
+	width: 100%;
+	height: 100%
+}
+
+#body #albums #album_image p {
+	left: 0;
+	bottom: 0;
+	width: 727px;
+	height: 30px;
+	opacity: 0.8;
+	padding: 10px;
+	color: #009EE0;
+	background: #000;
+	position: absolute;
+	filter: alpha(opacity=80);
+}
+
+#body #albums #album_image span {
+	top: 0;
+	right: 0;
+	width: 1px;
+	height: 373px;
+	position: absolute;
+	background: url(../img/bg_album_borde.png)
+}
+
+#body #albums #album_info {
+	width: 747px;
+	height: 52px;
+	position: relative;
+	margin-bottom: 10px
+}
+
+#body #albums #album_info span {
+	float: left
+}
+
+#body #albums #album_info .album_info_1 {
+	width: 6px;
+	height: 8px;
+	background: url(../img/bg_album_info_1.png)
+}
+
+#body #albums #album_info .album_info_2 {
+	width: 245px;
+	height: 6px;
+	opacity: 0.6;
+	background-color: #000;
+	filter: alpha(opacity=60);
+	border-top: 1px solid #0045AE;
+	border-bottom: 1px solid #0045AE;
+}
+
+#body #albums #album_info .album_info_3 {
+	width: 11px;
+	height: 52px;
+	background: url(../img/bg_album_info_3.png)
+}
+
+#body #albums #album_info .album_info_4 {
+	width: 361px;
+	height: 50px;
+	opacity: 0.6;
+	position: relative;
+	background-color: #000;
+	filter: alpha(opacity=60);
+	border-top: 1px solid #0045AE;
+	border-bottom: 1px solid #0045AE
+}
+
+#body #albums #album_info .album_info_4 span {
+	top: 7px;
+	right: 7px;
+	color: #0045AE;
+	position: absolute
+}
+
+#body #albums #album_info .album_info_5 {
+	width: 10px;
+	height: 52px;
+	background: url(../img/bg_album_info_5.png)
+}
+
+#body #albums #album_info .album_info_6 {
+	width: 9px;
+	height: 43px;
+	margin: 0 0 9px 5px;
+	background: url(../img/bg_album_info_6.png)
+}
+
+#body #albums #album_info .album_info_7 {
+	width: 90px;
+	height: 41px;
+	opacity: 0.6;
+	margin-bottom: 11px;
+	background-color: #000;
+	filter: alpha(opacity=60);
+	border-top: 1px solid #00039B;
+	border-bottom: 1px solid #00039B;
+}
+
+#body #albums #album_info .album_info_8 {
+	width: 10px;
+	height: 43px;
+	margin-bottom: 9px;
+	background: url(../img/bg_album_info_8.png)
+}
+
+#body #albums #album_info .album_info_9 {
+	left: 0;
+	top: 9px;
+	width: 8px;
+	height: 34px;
+	position: absolute;
+	background: url(../img/bg_album_info_9.png)
+}
+
+#body #albums #album_info .album_info_10 {
+	top: 9px;
+	left: 8px;
+	width: 225px;
+	height: 34px;
+	opacity: 0.6;
+	position: absolute;
+	background-color: #001E52;
+	filter: alpha(opacity=60)
+}
+
+#body #albums #album_info .album_info_10 h3 {
+	color: #FFF;
+	font-weight: 700;
+	padding-left: 5px;
+}
+
+#body #albums #album_info .album_info_10 p {
+	color: #FFF;
+	padding: 0;
+	font-weight: 700;
+	padding-left: 5px;
+}
+
+#body #albums #album_info .album_info_11 {
+	top: 9px;
+	left: 233px;
+	width: 8px;
+	height: 34px;
+	position: absolute;
+	background: url(../img/bg_album_info_11.png)
+}
+
+#body #recommended {
+	float: left;
+	width: 406px;
+	height: 278px;
+	overflow: hidden;
+	margin: 0 20px 30px 0
+}
+
+#body #recommended h2 {
+	height: 22px;
+	padding: 0 35px;
+	font-size: 14px;
+	margin-bottom: 20px;
+	font-family: 'Andrew_Ward';
+	background: url(../img/iconos.png) -4px -196px
+}
+
+#body #recommended .album {
+	color: #333;
+	padding: 2px;
+	height: 108px;
+	overflow: hidden;
+	margin-top: 10px;
+	background-color: #FFF
+}
+
+#body #recommended .thumbnail {
+	float: left;
+	margin-right: 10px
+}
+
+#body #recommended .thumbnail img {
+	width: 216px;
+	height: 107px
+}
+
+#body #recommended h3 {
+	font-size: 12px;
+	margin-top: 5px;
+}
+
+#body #recommended h3 a {
+	color: #000;
+	font-weight: 700;
+	text-decoration: none
+}
+
+#body #recommended h3 a:hover {
+	color: #000;
+	text-decoration: underline
+}
+
+#body ul#comments {
+	float: left;
+	width: 417px;
+	height: 205px;
+	overflow: scroll;
+	background: #132741;
+	margin: 0 20px 30px 0
+}
+
+#body ul#comments li {
+	color: #999;
+	height: 43px;
+	padding: 6px;
+	overflow: hidden;
+	background: #08101A;
+	margin: 6px 6px 0 0;
+}
+
+#body ul#comments li.form {
+	margin-right: 0;
+	background: #132741 !important;
+}
+
+#body ul#comments li.odd {
+	background: #0B1727;
+}
+
+#body ul#comments li img {
+	float: left;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px
+}
+
+#body ul#comments li h3 {
+	color: #FC5C03;
+	display: inline;
+	font-size: 12px;
+	font-weight: 700;
+	margin: 5px 5px 0 0;
+	text-transform: uppercase
+}
+
+#body ul#comments li p {
+	display: inline;
+	font-size: 11px
+}
+
+#body ul#comments li.form  form {
+	float: left;
+	width: 336px;
+	border: 1px solid #703C28;
+}
+
+#body ul#comments li.form  form textarea {
+	border: none;
+	width: 284px;
+	height: 34px;
+	padding: 3px;
+	color: #FC5C03;
+	font-size: 12px;
+	min-width: 284px;
+	min-height: 34px;
+	max-width: 284px;
+	max-height: 34px;
+	background: none
+}
+
+#body ul#comments li.form  form div {
+	width: 26px;
+	height: 26px;
+	float: right;
+	margin: 5px;
+	background: url(../img/iconos.png) -126px -5px
+}
+
+#body #suggested_video {
+	width: 303px;
+	float: right;
+	margin-bottom: 30px
+}
+
+#body #suggested_video h2 {
+	height: 21px;
+	color: #0E252B;
+	font-size: 14px;
+	padding: 0 35px;
+	text-align: right;
+	margin-bottom: 20px;
+	font-family: 'Andrew_Ward';
+	background: url(../img/iconos.png) -4px -168px
+}
+
+#body #suggested_video .video {
+	width: 266px;
+	margin: auto;
+	overflow: hidden;
+	position: relative
+}
+
+#body #suggested_video .video:hover {
+	cursor: pointer
+}
+
+#body #suggested_video .video:hover .detail {
+	display: block
+}
+
+#body #suggested_video .video img {
+	width: 262px;
+	height: 221px;
+	border: 2px solid #CCC
+}
+
+#body #suggested_video .video .play {
+	top: 91px;
+	left: 102px;
+	width: 58px;
+	height: 41px;
+	position: absolute;
+	background: url(../img/iconos.png) -187px -91px
+}
+
+#body #suggested_video .video .detail {
+	left: 2px;
+	color: #FFF;
+	bottom: 4px;
+	width: 242px;
+	opacity: 0.5;
+	display: none;
+	padding: 0 10px;
+	overflow: hidden;
+	max-height: 75px;
+	position: absolute;
+	background-color: #000;
+	filter: alpha(opacity=50)
+}
+
+#body #suggested_video .video .detail h3 {
+	color: #FFF;
+	font-size: 12px;
+	font-weight: 700;
+	padding-top: 5px
+}
+
+#body #videos {
+	width: 303px;
+	float: right;
+	position: reltive;
+	margin-bottom: 30px
+}
+
+#body #videos h2 {
+	height: 21px;
+	color: #000;
+	font-size: 14px;
+	padding: 0 35px;
+	text-align: right;
+	margin-bottom: 30px;
+	font-family: 'Andrew_Ward';
+	background: url(../img/iconos.png) -4px -137px
+}
+
+#body #videos #videos_container {
+	margin: auto;
+	width: 190px;
+	height: 140px;
+	overflow: hidden;
+	position: relative
+}
+
+#body #videos #videos_container ul {
+	top: 0;
+	left: 0;
+	position: absolute;
+}
+
+#body #videos #videos_container ul li {
+	float: left;
+	width: 190px;
+	height: 140px;
+	position: relative;
+	text-align: center
+}
+
+#body #videos ul li:hover {
+	cursor: pointer
+}
+
+#body #videos ul li:hover .play, #body #videos ul li:hover .detail {
+	display: block
+}
+
+#body #videos ul li img {
+	width: 158px;
+	height: 120px;
+	border: 2px solid #666
+}
+
+#body #videos ul li .play {
+	top: 18px;
+	left: 53px;
+	width: 84px;
+	height: 58px;
+	display: none;
+	position: absolute;
+	background: url(../img/iconos.png) -315px -133px
+}
+
+#body #videos ul li .detail {
+	top: 0;
+	left: 0;
+	color: #FFF;
+	width: 160px;
+	height: 80px;
+	opacity: 0.5;
+	display: none;
+	padding: 0 25px;
+	overflow: hidden;
+	text-align: left;
+	position: absolute;
+	background-color: #000;
+	filter: alpha(opacity=50)
+}
+
+#body #videos ul li .detail h3 {
+	color: #FFF;
+	font-size: 12px;
+	font-weight: 700;
+	padding-top: 5px
+}
+
+#body #videos #videos_scroll {
+	position: relative;
+}
+
+#body #videos #videos_scroll a.mouseover_left {
+	left: 16px;
+	top: -118px;
+	width: 30px;
+	height: 86px;
+	position: absolute;
+	background: url(../img/iconos.png) -4px -48px
+}
+
+#body #videos #videos_scroll a.mouseover_left:hover {
+	background: url(../img/iconos.png) -75px -48px
+}
+
+#body #videos #videos_scroll a.mouseover_right {
+	right: 16px;
+	top: -118px;
+	width: 30px;
+	height: 86px;
+	position: absolute;
+	background: url(../img/iconos.png) -41px -48px
+}
+
+#body #videos #videos_scroll a.mouseover_right:hover {
+	background: url(../img/iconos.png) -110px -48px
+}
+
+#body #my_albums {
+	width: 303px;
+	float: right;
+	position: reltive;
+	margin-bottom: 30px
+}
+
+#body #my_albums h2 {
+	height: 21px;
+	color: #000;
+	font-size: 14px;
+	padding: 0 35px;
+	text-align: right;
+	margin-bottom: 30px;
+	font-family: 'Andrew_Ward';
+	background: url(../img/iconos.png) -4px -137px
+}
+
+#body #my_albums #album_container {
+	margin: auto;
+	width: 190px;
+	height: 140px;
+	overflow: hidden;
+	position: relative
+}
+
+#body #my_albums #album_container ul li {
+	float: left;
+	width: 64px
+}
+
+#body #my_albums #album_container ul li ul li {
+	width: 64px;
+	height: 66px;
+	position: relative
+}
+
+#body #my_albums #album_container ul li ul li img {
+	width: 55px;
+	height: 57px;
+	cursor: pointer
+}
+
+#body #my_albums #album_scroll {
+	position: relative;
+}
+
+#body #my_albums #album_scroll a.mouseover_left {
+	left: 16px;
+	top: -118px;
+	width: 30px;
+	height: 86px;
+	position: absolute;
+	background: url(../img/iconos.png) -4px -48px
+}
+
+#body #my_albums #album_scroll a.mouseover_left:hover {
+	background: url(../img/iconos.png) -75px -48px
+}
+
+#body #my_albums #album_scroll a.mouseover_right {
+	right: 16px;
+	top: -118px;
+	width: 30px;
+	height: 86px;
+	position: absolute;
+	background: url(../img/iconos.png) -41px -48px
+}
+
+#body #my_albums #album_scroll a.mouseover_right:hover {
+	background: url(../img/iconos.png) -110px -48px
+}
+
+#body .images_bottom_top {
+	clear: both;
+	height: 9px;
+	width: 747px;
+	background: url(../img/bg_imagenes_top.jpg)
+}
+
+#body #images_bottom {
+	height: 157px;
+	margin-top: 10px;
+	position: relative;
+	background: url(../img/bg_imagenes_izq.jpg) top left no-repeat
+}
+
+#body #images_bottom ul {
+	height: 117px;
+	padding: 20px 15px;
+	margin-left: 5px;
+	background: url(../img/bg_imagenes.jpg)
+}
+
+#body #images_bottom ul li {
+	float: left;
+	padding-right: 10px;
+}
+
+#body #images_bottom ul li img {
+	width: 132px;
+	height: 110px;
+}
+
+#body #images_bottom span {
+	top: 0;
+	right: 0;
+	width: 6px;
+	height: 157px;
+	position: absolute;
+	background: url(../img/bg_imagenes_der.jpg)
+}
+
+#sidebar {
+	float: right;
+	width: 133px;
+	margin-right: 20px;
+}
+
+#sidebar .nickname {
+	margin-top: 20px;
+	text-align: center
+}
+
+#sidebar .nickname h2 {
+	color: #fff;
+	font-size: 14px;
+	font-weight: 700;
+	padding-bottom: 10px
+}
+
+#sidebar .live_transmission {
+	border: 2px solid #009cde;
+}
+
+#sidebar .advertising {
+	height: 505px;
+	padding: 5px;
+	background: #969696
+}
+
+#sidebar .followus span {
+	width: 136px;
+	height: 39px;
+	display: block;
+	line-height: 39px;
+	text-align: center;
+	margin-bottom: 5px;
+	background: url(../img/iconos.png) -245px -3px
+}
+
+#sidebar .followus a#followus_twitter {
+	float: left;
+	width: 42px;
+	height: 43px;
+	display: block;
+	padding-right: 3px;
+	background: url(../img/iconos.png) -142px -42px
+}
+
+#sidebar .followus a#followus_facebook {
+	float: left;
+	width: 42px;
+	height: 43px;
+	display: block;
+	background: url(../img/iconos.png) -196px -42px
+}
+
+#sidebar .followus a#followus_vimeo {
+	float: right;
+	width: 45px;
+	height: 43px;
+	display: block;
+	background: url(../img/iconos.png) -141px -91px
+}
+
+#footer {
+    clear: both;
+	float: left;
+	width: 790px;
+	border-top: 1px dashed #666
+}
+
+#footer ul {
+	float: right;
+	margin: 10px 0 30px;
+}
+
+#footer ul li {
+	float: right
+}
+
+#footer ul li a {
+	color: #0045ae;
+	font-weight: 700;
+	padding-left: 15px;
+	text-transform: uppercase;
+}
+
+#footer ul li a:hover {
+	color: #fff;
+}

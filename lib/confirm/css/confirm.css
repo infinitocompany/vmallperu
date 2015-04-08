@@ -1,0 +1,77 @@
+body {
+height:100%;
+width:100%;
+margin:0;
+padding:0
+}
+
+#confirmModalOverlay {
+background-color:#9A9A9A;
+cursor:wait;
+opacity:.75;
+filter:alpha(opacity=75)
+}
+
+#confirmModalContainer {
+height:140px;
+width:420px;
+left:50%;
+top:15%;
+margin-left:-210px;
+font-family:'Trebuchet MS', Verdana, Arial;
+font-size:16px;
+text-align:left;
+background:#fff;
+border:2px solid #009AB1
+}
+
+#confirmModalContainer .header {
+height:30px;
+width:100%;
+font-weight:700;
+background-color:#009AB1;
+color:#fff;
+font-size:16px;
+line-height:30px
+}
+
+#confirmModalContainer .header span {
+padding-left:8px
+}
+
+#confirmModalContainer .message {
+color:#979897;
+font-size:14px;
+text-align:center;
+margin:0;
+padding:12px 4px
+}
+
+#confirmModalContainer .buttons {
+width:160px;
+float:right;
+padding:10px 130px 0
+}
+
+#confirmModalContainer .buttons div {
+float:right;
+margin-left:8px;
+width:70px;
+height:26px;
+color:#666;
+font-weight:700;
+text-align:center;
+background:url(../img/confirm/button.gif) repeat-x;
+border:1px solid #bbb;
+cursor:pointer
+}
+
+#confirmModalContainer a.modalCloseX,#confirmModalContainer a.modalCloseX:link,#confirmModalContainer a.modalCloseX:active,#confirmModalContainer a.modalCloseX:visited {
+text-decoration:none;
+font-size:16px;
+position:absolute;
+top:3px;
+left:350px;
+color:#FFF;
+font-weight:700
+}

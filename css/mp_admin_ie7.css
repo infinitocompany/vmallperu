@@ -1,0 +1,16 @@
+body {
+	text-align: center
+}
+
+#nav ul li ul li {
+	overflow: hidden
+}
+
+#content #list table.listing {
+	border-collapse: collapse
+}
+
+#content #form span.asyncUploader div.ProgressBar {
+	zoom: 1;
+	display: inline
+}

@@ -1,0 +1,2 @@
+/* IE 6 hacks*/
+#confirmModalContainer {top:expression((document.documentElement.scrollTop || document.body.scrollTop) + Math.round(15 * (document.documentElement.offsetHeight || document.body.clientHeight) / 100) + 'px');}

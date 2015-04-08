@@ -1,0 +1,26 @@
+.holder {margin: 15px 0;text-align:center;}
+.holder a {font-size: 15px;cursor: pointer;margin: 0 5px;color: #333;padding: 2px;}
+.holder a:hover {background-color: #D0361E;color: #fff;}
+.holder a.jp-previous { margin-right: 15px; }
+.holder a.jp-next { margin-left: 15px; }
+.holder a.jp-current, a.jp-current:hover {color: #FF4242;font-weight: bold;}
+.holder a.jp-disabled, a.jp-disabled:hover { color: #bbb;}
+.holder a.jp-current, a.jp-current:hover, .holder a.jp-disabled, a.jp-disabled:hover {cursor: default;background: none;}
+.holder span { margin: 0 5px; }
+
+table{ width: 100%; margin-top: 30px; }
+td, th{ text-align: left; height:25px; alignment-adjust: middle;}
+td{padding:3px 5px;}
+th { background: #FBEEEC; text-align: center; padding: 10px; color:#DE3A1F;}
+th:nth-child(1){ width:10%; }
+th:nth-child(2){ width:10%; }
+th:nth-child(3){ width:60%; }
+th:nth-child(4){ width:20%;}
+
+.customBtns { position: relative; }
+.arrowPrev, .arrowNext { width:29px; height:29px; position: absolute; top: 200px; cursor: pointer; }
+.arrowPrev { background-image: url('img/back.gif'); left: -45px; }
+.arrowNext { background-image: url('img/next.gif'); right: -40px; }
+.arrowPrev.jp-disabled, .arrowNext.jp-disabled { display: none; }
+
+.clsbtn{background: #FBEEEC;color:#FFF;margin-bottom:15px;margin-top:10px;width:180px;}
