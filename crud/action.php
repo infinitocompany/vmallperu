@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../conf.php";
 include '../class/Functions.php';
 $action = mp_scape($_POST['action']);
@@ -17,30 +18,29 @@ switch($action){
         break;
     case 2:
         if(!isset($_POST['username']) and !isset($_POST['password'])){
-            echo 'Ingrese Usuario/Contraseña.';
+            echo 'error--1';
         }
-        if(($password = $cn->getField("SELECT password FROM vmall_users WHERE user = '".$cn->scape($_POST['username'])."'")) == ""){
-            echo "El usuario no existe.<br />Porfavor, intente nuevamente.";
-            
-        }elseif($password != md5($cn->scape($_POST['password']))){
-            echo "La contrase&ntilde;a ingresada para el usuario <strong>".$cn->scape($_POST['username'])."</strong> es incorrecto.";
-        }else{
-            session_start();
+        else if($idUser=$cn->getField("select id from vmall_users where user='".$cn->scape($_POST['username'])."' and password='".md5($cn->scape($_POST['password']))."'") == "")
+        {
+        	echo "error--2";
+        }
+        else
+        {
             $_SESSION['vmall_session'] = true;
+            $_SESSION['vmall_iduser'] = $idUser;
             $id = session_id();
             $cn->query("UPDATE vmall_users SET sessionid = '$id' WHERE user = '".$cn->scape($_POST['username'])."'");
-            echo "Bienvenid@ ".$cn->getField("SELECT CONCAT(name,' ',lastname) FROM vmall_users WHERE user = '".$cn->scape($_POST['username'])."'");
+            $_SESSION['vmall_name']=$cn->getField("SELECT CONCAT(name,' ',lastname) FROM vmall_users WHERE user = '".$cn->scape($_POST['username'])."'");
+            echo "msg--Bienvenid@ ".$_SESSION['vmall_name'];
             
         }
         break;
     case 3:
-        session_start();
         unset($_SESSION['vmall_session']);
+        session_destroy();
         echo 'Hasta la proxima.';
         break;
     case 4:
-    	echo "dr".rpHash($_POST['defaultReal']);
-    	echo "drh".$_POST['defaultRealHash'];
         if (rpHash($_POST['defaultReal']) == $_POST['defaultRealHash']) {echo 'true';}else{echo 'false';}
         break;
 }

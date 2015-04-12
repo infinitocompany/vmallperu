@@ -1,3 +1,7 @@
+<?php 
+session_start();
+error_reporting(E_ALL);
+?>
 <!DOCTYPE html>
 <html>  
     <head>
@@ -8,9 +12,9 @@
         <meta name="author" content="">
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="assets/css/bootstrap-submenu.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/style-menu-core.css" rel="stylesheet" type="text/css">
+        <!--<link href="assets/css/style-menu-core.css" rel="stylesheet" type="text/css">-->
         <link href="assets/css/style-main.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/style-menu.css" rel="stylesheet" type="text/css">
+        <!--  <link href="assets/css/style-menu.css" rel="stylesheet" type="text/css">-->
         <link href="assets/css/style-form.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style-pages.css"rel="stylesheet" type="text/css">
         <link href="lib/chosen/chosen.css"rel="stylesheet" type="text/css">

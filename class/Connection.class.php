@@ -9,9 +9,9 @@ class Connection{
     public $rsltSet = NULL;
     
     private function __construct(){
-        $this->Link = @mysql_pconnect("localhost", "aquolity_root", "Infinito2015");
+        $this->Link = @mysql_pconnect("localhost", "vmperu20_itech", "(tLHN}R~.47c");
         if(!$this->Link) throw new Exception("Could not connect to server: ".$this->error());
-        if(!mysql_select_db("aquolity_itech", $this->Link)) throw new Exception("Could not connect to database: ".$this->error());
+        if(!mysql_select_db("vmperu20__root", $this->Link)) throw new Exception("Could not connect to database: ".$this->error());
         $this->query("SET NAMES utf8");
     }
     /*

@@ -85,7 +85,7 @@
 			@property [chars=alphabetic] {string} The characters allowed. */
 		defaultOptions: {
 			length: 6,
-			regenerate: 'Click para cambiar',
+			regenerate: 'Click to change',
 			hashName: '{n}Hash',
 			dot: '*',
 			dots: DOTS,
@@ -206,7 +206,6 @@
 		for (var i = 0; i < value.length; i++) {
 			hash = ((hash << 5) + hash) + value.charCodeAt(i);
 		}
-		$('#defaultRealHash').val(hash);
 		return hash;
 	}
 

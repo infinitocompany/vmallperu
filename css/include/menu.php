@@ -1,4 +1,11 @@
-<?php require_once "conf.php";?>
+<?php require_once "conf.php";
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+?>
     <!-- Menu-->
     <div class="row ">
         <div class="content no-paddingH">
@@ -51,9 +58,7 @@
             </div>
             <!--Menu-->
             <!-- Search -->
-            <?php
-            $active=false;
-            if(!$active){?>
+            <?php if(!$active){?>
             <div class="col-xs-12 col-sm-8 col-md-8 canvas-search box-red-lighter ">
                 <div class="col-xs-3 col-sm-3 col-md-3 no-padding"><h1>QUIERO </h1></div>
                 <div class="col-xs-9 col-sm-9 col-md-9 ">

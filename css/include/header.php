@@ -1,18 +1,22 @@
-<?php 
+<?php
+echo "asasa";
 require_once "conf.php";
 $cn->query("SELECT ConLog, ConSlo, ConFavIco, ConMas, ConFacLnk, ConTwiLnk, ConGooLnk, ConLinLnk, ConSky, ConYou, ConVim FROM itech_configuration");
 session_cache_limiter('nocache,private');
+echo "ses".$_SESSION['vmall_session'];
 isset($_SESSION['vmall_session']) ? $session="true" : $session="false";
-if($session=='true')
-{
+if($session=='true'){
     $sessionid = session_id(); 
     $cn->qry("SELECT id, user, CONCAT(name, ' ', lastname) AS name FROM vmall_users WHERE sessionid = '$sessionid'");
     $rx = $cn->fch();
-}
-else
-{ 
+}else{ 
     $rx = array("id"=>"", "user"=>"", "name"=>"");
 }
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 ?>
     <!-- Navbar -->
     <header> 
@@ -29,7 +33,7 @@ else
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse ">
                 <ul class="nav navbar-nav navbar-right" style="">
-                    <li class="active"><a href="./">Inicio</a><input class="hide" type="text" id="userid" value="<?php echo $rx['id'];?>"></li>
+                    <li class="active"><a href="./">Inicio11	</a><input class="hide" type="text" id="userid" value="<?php echo $rx['id'];?>"></li>
                     <li class="hidden-xs hidden-sm"><a class="no-link">|</a></li>
                     <?php if($session=='false'){?>
                     <li><a href="registro.php">Registrar</a></li>  
@@ -51,9 +55,7 @@ else
                     <?php }else{?>
                     <li class="dropdown"><a class="dropdown-toggle" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">Bienvenido, <?php echo $rx['name'];?> <strong class="caret"></strong></a>
                         <div class="dropdown-menu box-red-dark dropdown-login"> 
-                            <a class="dropdown-toggle" data-target="#" href="#" data-toggle="dropdown" >
-                            	<span class="glyphicon glyphicon-remove pull-right" aria-hidden="true"></span>  
-                           	</a>
+                            <a class="dropdown-toggle" data-target="#" href="#" data-toggle="dropdown" ><span class="glyphicon glyphicon-remove pull-right" aria-hidden="true"></span>  </a>
                             <a class="pull-left" href="javascript:void(0);" id="logout">Cerrar Sesi&oacute;n</a>
                         </div>
                     </li>
@@ -63,14 +65,7 @@ else
                     <li class="hidden-xs hidden-sm"><a class="no-link">|</a></li>  
                     <li><a href="#"><img  class="" src="assets/img/canvas-navbar/icono-configuracion.png" /></a></li> 
                     <li class="hidden-xs hidden-sm"><a class="no-link">|</a></li>            
-                    <li>
-                    <div id="btn1" class="btn">
-				        Profile
-				        <span class="ballons"></span>
-				    </div>
-                    	<a href="preferidos.php"><img  class="" src="assets/img/canvas-navbar/icono-calificacion.png" /></a>
-                    
-                    </li> 
+                    <li><a href="preferidos.php"><img  class="" src="assets/img/canvas-navbar/icono-calificacion.png" /></a></li> 
                     <?php }?>
                 </ul>
             </div>
@@ -133,21 +128,4 @@ else
             <img class="img-responsive center img-tobe-hide" alt="ayuda-guia" src="userfiles/<?php echo $cn->result('ConMas'); ?>" />
         </div>
     </div>
-    <!-- Modal -->
-        <div class="modal fade" id="tplmsg">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <span class="modal-title"></span>
-                    </div>
-                    <div class="modal-body">
-                    	<br>
-                        <div class="modal-image" style="float:left;margin-right:10px;"></div>
-                        <div class="modal-description" style="float:rigth;"></div>
-                        <br>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
     <!--Banner-->

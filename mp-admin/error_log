@@ -1,2 +1,11 @@
 [21-Mar-2015 15:56:11 America/Chicago] PHP Warning:  require_once(conf.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in /home/aquolity/public_html/mp-admin/modules/order/order-list.php on line 2
 [21-Mar-2015 15:56:11 America/Chicago] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required 'conf.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/aquolity/public_html/mp-admin/modules/order/order-list.php on line 2
+[06-Apr-2015 19:38:04 America/Chicago] PHP Warning:  trim() expects parameter 1 to be string, array given in /home/vmperu2015/public_html/class/Fuctions.php on line 82
+[06-Apr-2015 19:42:11 America/Chicago] PHP Warning:  trim() expects parameter 1 to be string, array given in /home/vmperu2015/public_html/class/Fuctions.php on line 82
+[06-Apr-2015 22:02:31 America/Chicago] PHP Warning:  trim() expects parameter 1 to be string, array given in /home/vmperu2015/public_html/class/Fuctions.php on line 82
+[06-Apr-2015 22:02:32 America/Chicago] PHP Warning:  trim() expects parameter 1 to be string, array given in /home/vmperu2015/public_html/class/Fuctions.php on line 82
+[06-Apr-2015 23:01:00 America/Chicago] PHP Warning:  trim() expects parameter 1 to be string, array given in /home/vmperu2015/public_html/class/Fuctions.php on line 82
+[06-Apr-2015 23:50:52 America/Chicago] PHP Warning:  require_once(conf.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in /home/vmperu2015/public_html/mp-admin/modules/order/order-list.php on line 2
+[06-Apr-2015 23:50:52 America/Chicago] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required 'conf.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/vmperu2015/public_html/mp-admin/modules/order/order-list.php on line 2
+[07-Apr-2015 00:16:14 America/Chicago] PHP Warning:  trim() expects parameter 1 to be string, array given in /home/vmperu2015/public_html/class/Fuctions.php on line 82
+[07-Apr-2015 00:16:33 America/Chicago] PHP Warning:  trim() expects parameter 1 to be string, array given in /home/vmperu2015/public_html/class/Fuctions.php on line 82

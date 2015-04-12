@@ -1,5 +1,4 @@
 <?php
-
 function tbl_blog($do = "theme-list", $param = ""){
 	$cn = Connection::getInstance();
 	if($do == "theme-detail"){
@@ -86,8 +85,8 @@ function mp_unscape($text){
 	return htmlspecialchars($text);
 }
 
-$states = array("AL"=>"Alabama", "AK"=>"Alaska", "AZ"=>"Arizona", "AR"=>"Arkansas", "CA"=>"California", "CO"=>"Colorado", "CT"=>"Connecticut", "DE"=>"Delaware", "DC"=>"District of Columbia", "FL"=>"Florida", "GA"=>"Georgia", "HI"=>"Hawaii", "ID"=>"Idaho", "IL"=>"Illinois", "IN"=>"Indiana", "IA"=>"Iowa", "KS"=>"Kansas", "KY"=>"Kentucky", "LA"=>"Louisiana", "ME"=>"Maine", "MD"=>"Maryland", "MA"=>"Massachusetts", "MI"=>"Michigan", "MN"=>"Minnesota", "MS"=>"Mississippi", "MO"=>"Missouri", "MT"=>"Montana", "NE"=>"Nebraska", "NV"=>"Nevada", "NH"=>"New Hampshire", "NJ"=>"New Jersey", "NM"=>"New Mexico", "NY"=>"New York", "NC"=>"North Carolina", "ND"=>"North Dakota", "OH"=>"Ohio", "OK"=>"Oklahoma", "OR"=>"Oregon", "PA"=>"Pennsylvania", "RI"=>"Rhode Island", "SC"=>"South Carolina", "SD"=>"South Dakota", "TN"=>"Tennessee", "TX"=>"Texas", "UT"=>"Utah", "VT"=>"Vermont", "VA"=>"Virginia", "WA"=>"Washington", "WV"=>"West Virginia", "WI"=>"Wisconsin", "WY"=>"Wyoming");
-
+//$states = array("AL"=>"Alabama", "AK"=>"Alaska", "AZ"=>"Arizona", "AR"=>"Arkansas", "CA"=>"California", "CO"=>"Colorado", "CT"=>"Connecticut", "DE"=>"Delaware", "DC"=>"District of Columbia", "FL"=>"Florida", "GA"=>"Georgia", "HI"=>"Hawaii", "ID"=>"Idaho", "IL"=>"Illinois", "IN"=>"Indiana", "IA"=>"Iowa", "KS"=>"Kansas", "KY"=>"Kentucky", "LA"=>"Louisiana", "ME"=>"Maine", "MD"=>"Maryland", "MA"=>"Massachusetts", "MI"=>"Michigan", "MN"=>"Minnesota", "MS"=>"Mississippi", "MO"=>"Missouri", "MT"=>"Montana", "NE"=>"Nebraska", "NV"=>"Nevada", "NH"=>"New Hampshire", "NJ"=>"New Jersey", "NM"=>"New Mexico", "NY"=>"New York", "NC"=>"North Carolina", "ND"=>"North Dakota", "OH"=>"Ohio", "OK"=>"Oklahoma", "OR"=>"Oregon", "PA"=>"Pennsylvania", "RI"=>"Rhode Island", "SC"=>"South Carolina", "SD"=>"South Dakota", "TN"=>"Tennessee", "TX"=>"Texas", "UT"=>"Utah", "VT"=>"Vermont", "VA"=>"Virginia", "WA"=>"Washington", "WV"=>"West Virginia", "WI"=>"Wisconsin", "WY"=>"Wyoming");
+/*
 function rpHash($value) {
     $hash = 5381;
     $value = strtoupper($value);
@@ -96,5 +95,28 @@ function rpHash($value) {
     }
     return $hash;
 }
+*/
+function rpHash($value) { 
+    $hash = 5381; 
+    $value = strtoupper($value); 
+    for($i = 0; $i < strlen($value); $i++) { 
+        $hash = (leftShift32($hash, 5) + $hash) + ord(substr($value, $i)); 
+    } 
+    return $hash; 
+} 
 
+function leftShift32($number, $steps) { 
+    // convert to binary (string) 
+    $binary = decbin($number); 
+    // left-pad with 0's if necessary 
+    $binary = str_pad($binary, 32, "0", STR_PAD_LEFT); 
+    // left shift manually 
+    $binary = $binary.str_repeat("0", $steps); 
+    // get the last 32 bits 
+    $binary = substr($binary, strlen($binary) - 32); 
+    // if it's a positive number return it 
+    // otherwise return the 2's complement 
+    return ($binary{0} == "0" ? bindec($binary) : 
+        -(pow(2, 31) - bindec(substr($binary, 1)))); 
+} 
 ?>

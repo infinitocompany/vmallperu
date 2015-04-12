@@ -29,6 +29,11 @@ function message (title, msg, type){
     }
     $('#message').modal('show');
 };
+function messageTpl (title, msg,type,id){
+    $('.modal-title').text(title); 
+    $('.modal-description').text(msg);
+    $('#'+id).modal('show');
+};
 var pass = function(){
     $(".pass_catalog").off().on('click', function (e) {
         e.preventDefault();
@@ -152,6 +157,7 @@ var search = function(){
         window.location.href = 'productos.php?search='+$("#inputsearch").val();
     });
 };
+
 var register = function(){
     $("#buttonregister").off().on('click', function (e) {
         e.preventDefault();
@@ -169,23 +175,33 @@ var register = function(){
         var _lname = $('#rlastname').val();
         var _user = $('#ruser').val();
         var _pass = $('#rpass').val();
+        var mesgresp="";
         $.ajax({
             type: "POST",
             url: "crud/action.php",
             data: "defaultReal="+ _captcha + "&defaultRealHash="+ _hash + "&action=4",
             success: function (msg) {
-                if(msg=='true'){
+            	mesgresp=msg;
+            	var vFind=mesgresp.search("true");
+                if(vFind>=0){
                     $.ajax({
                         type: "POST",
                         url: "crud/action.php",
                         data: "rname="+ _name +"& rlname="+ _lname+"& ruser="+ _user +"& rpass="+ _pass+"& action=1",
                         success: function (msg) {
                             if(msg=='0'){
-                                message('Registro VMALL', 'Usuario registrado con exito', 0);
-                                //window.location.href = './';
+                                message('Registro VMALL', 'Usuario registrado con exito, usted sera redireccionado en 5 segundos', 0);
+                                setTimeout ("redirect()", 5000);
                             }else{
-                                message('Registro VMALL', 'Hubo un error en el registro, intentelo mas tarde.', 0);
-                                //window.location.href = 'registro.php';
+                            	vFind=msg.search("Duplicate entry");
+                            	if(vFind>=0)
+                        		{
+                            		message('Registro VMALL', 'El correo ingresado ya se encuentra registrado.', 0);
+                        		}
+                            	else
+                        		{
+                            		message('Registro VMALL', 'Hubo un error en el registro, intentelo mas tarde.', 0);
+                        		}
                             }
                         }        
                     });
@@ -199,18 +215,48 @@ var register = function(){
 
 var login = function(){
     $("#login").off().on('click', function (e) {
+    	
         e.preventDefault();
         if(!required('#username', 'Porfavor, ingrese un correo electrónico.') || !validate_email('#ruser')) return false;
         if(!required('#password', 'Porfavor, ingrese una contraseña.')) return false;
         var _username = $('#username').val();
         var _password = $('#password').val();
+        			
         $.ajax({
             type: "POST",
             url: "crud/action.php",
             data: "username="+ _username +"& password="+ _password+"& action=2",
             success: function (msg) {
-                alert(msg);     
-                window.location.href = 'solicitudes.php';
+            	var aResp=msg.split('--');
+            	if(aResp.length>0)
+        		{
+            		if(aResp[0]=="msg")
+            		{
+                		messageTpl('Mensaje',aResp[1],'','tplmsg');
+                		setTimeout ("redirect()", 3000);
+            		}
+                	else
+            		{
+                		if(aResp[1]=='1')
+            			{
+                			messageTpl('Error','Ingrese Usuario/Contraseña.','','tplmsg');
+                			
+            			}
+                		else if(aResp[1]=='2')
+            			{
+                			messageTpl('Error','El usuario no existe. Porfavor, intente nuevamente.','','tplmsg');
+            			}
+                		else
+                		{
+                			messageTpl('Error','Por favor comuniquese con el administrador','','tplmsg');
+                		}
+            		}
+        		}
+            	else 
+            	{
+            		messageTpl('','','','tplmsg');
+            	}
+                //window.location.href = 'solicitudes.php';
             }        
         });
     });
@@ -223,8 +269,9 @@ var logout= function(){
             url: "crud/action.php",
             data: "action=3",
             success: function (msg) {
-                alert(msg);     
-                window.location.href = './';
+            	messageTpl('Mensaje',msg,'','tplmsg');
+            	setTimeout ("redirect()", 3000);
+
             }        
         });
     });
@@ -265,4 +312,8 @@ function required(elem, msg, conten){
     if(conten == null) conten = "";
     if($.trim($(elem).val()) == conten){ message('Registro VMALL',msg, 0);$(elem).focus(); return false; }
     return true;
+};
+function redirect()
+{
+	location.href='index.php';
 };
