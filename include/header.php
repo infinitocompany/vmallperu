@@ -3,6 +3,7 @@ require_once "conf.php";
 $cn->query("SELECT ConLog, ConSlo, ConFavIco, ConMas, ConFacLnk, ConTwiLnk, ConGooLnk, ConLinLnk, ConSky, ConYou, ConVim FROM itech_configuration");
 session_cache_limiter('nocache,private');
 isset($_SESSION['vmall_session']) ? $session="true" : $session="false";
+/*
 if($session=='true')
 {
     $sessionid = session_id(); 
@@ -10,9 +11,10 @@ if($session=='true')
     $rx = $cn->fch();
 }
 else
-{ 
+{
     $rx = array("id"=>"", "user"=>"", "name"=>"");
 }
+*/
 ?>
     <!-- Navbar -->
     <header> 
@@ -28,8 +30,10 @@ else
                 <a class="hide pull-left" href="javascript:void(0);"> <img class="img-responsive center" src="assets/img/canvas-navbar/logo-tipo-48.png" /></a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse ">
-                <ul class="nav navbar-nav navbar-right" style="">
-                    <li class="active"><a href="./">Inicio</a><input class="hide" type="text" id="userid" value="<?php echo $rx['id'];?>"></li>
+                <ul class="nav navbar-nav navbar-right" style="vertical-align: middle;">
+                    <li class="active"><a href="./">Inicio</a>
+                    	
+                    </li>
                     <li class="hidden-xs hidden-sm"><a class="no-link">|</a></li>
                     <?php if($session=='false'){?>
                     <li><a href="registro.php">Registrar</a></li>  
@@ -56,20 +60,28 @@ else
                            	</a>
                             <a class="pull-left" href="javascript:void(0);" id="logout">Cerrar Sesi&oacute;n</a>
                         </div>
+                       
                     </li>
                     <!--
                     <li class="hidden-xs hidden-sm"><a class="no-link">|</a></li>
                     <li><a href="productos.php"><img  class="" src="assets/img/canvas-navbar/icono-carrito.png" /></a></li> -->
-                    <li class="hidden-xs hidden-sm"><a class="no-link">|</a></li>  
-                    <li><a href="#"><img  class="" src="assets/img/canvas-navbar/icono-configuracion.png" /></a></li> 
-                    <li class="hidden-xs hidden-sm"><a class="no-link">|</a></li>            
-                    <li>
-                    <div id="btn1" class="btn">
-				        Profile
-				        <span class="ballons"></span>
-				    </div>
-                    	<a href="preferidos.php"><img  class="" src="assets/img/canvas-navbar/icono-calificacion.png" /></a>
-                    
+                    <li class="hidden-xs hidden-sm"><a class="no-link">|</a></li> 
+                    <li style="width: 60px;">
+                    	<div id="buttonsnot">
+						    <div id="btn1" class="btn btnnot">
+						        <span class="ballons"></span>
+						        <img height="30" width="30" src="assets/img/canvas-navbar/icono-configuracion.png"/>
+						    </div>
+						</div>
+                    </li>
+                    <li style="width: 60px;">
+                    	<div id="buttonsnot">
+						    <div id="btn2" class="btn btnnot">
+						        <span class="ballons"></span>
+						        <img height="30" width="30" src="assets/img/canvas-navbar/icono-calificacion.png"/>
+						    </div>
+						     <input class="hide" type="text" id="userid" value="<?php echo  $_SESSION['vmall_iduser'];?>">
+						</div>
                     </li> 
                     <?php }?>
                 </ul>
@@ -80,17 +92,14 @@ else
     <!-- /Navbar -->
     <!-- Banner -->
     <section>
-    <div class=" box-social-icons no-padding">
-        <div class="col-xs-12 col-sm-12 col-md-12 no-padding">
-            <a href="<?php echo $cn->result('ConFacLnk');?>"><img  class="img-responsive" src="assets/img/canvas-banner/social-f.png" /></a>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 no-padding">
-            <a href="<?php echo $cn->result('ConTwiLnk');?>"><img class="img-responsive " src="assets/img/canvas-banner/social-t.png" /></a>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 no-padding">
-            <a href="<?php echo $cn->result('ConGooLnk');?>"><img class="img-responsive" src="assets/img/canvas-banner/social-g.png" /></a>
-        </div>
-    </div>
+    <div class="social">
+		<ul>
+			<li><a href="<?php echo $cn->result('ConFacLnk');?>" target="_blank" class="icon-facebook"></a></li>
+			<li><a href="<?php echo $cn->result('ConTwiLnk');?>" target="_blank" class="icon-twitter"></a></li>
+			<li><a href="<?php echo $cn->result('ConGooLnk');?>" target="_blank" class="icon-google"></a></li>
+			<li><a href="" class="icon-mail"></a></li>
+		</ul>
+	</div>
     <div class="row canvas-banner content no-paddingH">
         <div class="col-xs-12  col-sm-3 col-md-3 box-brand">
             <a href="./"><img class="img-responsive center img-tobe-hide" alt="virtual-mall" src="userfiles/<?php echo $cn->result('ConLog'); ?>" /></a>
@@ -151,3 +160,7 @@ else
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
     <!--Banner-->
+    
+   
+    
+    

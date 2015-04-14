@@ -90,7 +90,8 @@ var notification = function () {
         e.preventDefault();
         var user = $("#editUser").val();
         $('#detail').modal('hide');
-        if(user.length>0){
+        if(user.length>0)
+        {
             $('#notification').modal('show');
         }else{
             message('Solicitud de Notificación','Necesita iniciar sesión, para poder procesar su solicitud.', 1);

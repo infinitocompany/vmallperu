@@ -9,7 +9,7 @@
                 <div class="row"></br>
                     <ul class="og-grid">
                     <?php    
-                        $cn->query("SELECT GalTit, GalMinDes, GalMaxDes, GalImg, GalSta, CouAbr, GalPriCur, GalPriOff, GalFav FROM itech_gallery AS g, itech_country AS c WHERE GalSta='1' AND g.CouID=c.CouID ORDER BY GalTit ASC LIMIT 2");
+                        $cn->query("SELECT GalID,GalTit, GalMinDes, GalMaxDes, GalImg, GalSta, CouAbr, GalPriCur, GalPriOff, GalFav FROM itech_gallery AS g, itech_country AS c WHERE GalSta='1' AND g.CouID=c.CouID ORDER BY GalTit ASC LIMIT 2");
                         while($row = $cn->fetch()){ 
                             echo '<li><div class="col-xs-8 col-sm-8 col-md-8"><div style="font-size:17px;font-weight:bold;">'.$row['GalTit'].'</div></div>';
                             if($row['CouAbr']=='PE'){$img='<img class="img-responsive pull-right" src="assets/img/canvas-content/nacionalidad.png" />';}

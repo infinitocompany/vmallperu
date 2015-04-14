@@ -17,22 +17,28 @@ switch($action){
         }
         break;
     case 2:
-        if(!isset($_POST['username']) and !isset($_POST['password'])){
-            echo 'error--1';
-        }
-        else if($idUser=$cn->getField("select id from vmall_users where user='".$cn->scape($_POST['username'])."' and password='".md5($cn->scape($_POST['password']))."'") == "")
+    	$idUser="";
+    	if(!isset($_POST['username']) and !isset($_POST['password'])){
+    		echo 'error--1';
+    		return;
+    	}
+    	else
+    	{
+    		$idUser=$cn->getField("select id from vmall_users where user='".$cn->scape($_POST['username'])."' and password='".md5($cn->scape($_POST['password']))."'");
+    	}
+        if($idUser== "")
         {
         	echo "error--2";
         }
         else
         {
+        	
             $_SESSION['vmall_session'] = true;
             $_SESSION['vmall_iduser'] = $idUser;
             $id = session_id();
             $cn->query("UPDATE vmall_users SET sessionid = '$id' WHERE user = '".$cn->scape($_POST['username'])."'");
             $_SESSION['vmall_name']=$cn->getField("SELECT CONCAT(name,' ',lastname) FROM vmall_users WHERE user = '".$cn->scape($_POST['username'])."'");
             echo "msg--Bienvenid@ ".$_SESSION['vmall_name'];
-            
         }
         break;
     case 3:

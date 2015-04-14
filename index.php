@@ -19,6 +19,7 @@ error_reporting(E_ALL);
         <link href="assets/css/style-pages.css"rel="stylesheet" type="text/css">
         <link href="lib/chosen/chosen.css"rel="stylesheet" type="text/css">
         <link href="lib/jPages/jPages.css"rel="stylesheet" type="text/css">
+        <link href="assets/vmallperu/fonts/style.css"rel="stylesheet" type="text/css">
     </head>
     <body>
     <?php include("include/header.php"); ?>
@@ -58,7 +59,7 @@ error_reporting(E_ALL);
                         <li><h1 class="h1-huge text-center">'.$row['GalTexDis'].'</h1></li>
                         <li><h2 class="text-center">&Aacute;ntes S/. '.$row['GalPriCur'].' ahora S/. '.$row['GalPriOff'].'</h2></li>
                         <li><h4 class="text-center">'.$row['GalMinDes'].'</h4></li>
-                        <li><label class="btnComprar"><input type="submit" class="inputcomprar" data-id="'.$row['GalID'].'" data-facelin="'.$row['GalFacLin'].'" data-user="" data-title="'.$row['GalTit'].'" data-description="'.$row['GalMaxDes'].'" data-image="userfiles/'.$row['GalImgB'].'" name="inputcomprar" value="Ver M&aacute;s" style="width:142px;"/></label></li>
+                        <li><label class="btnComprar"><input type="submit" class="inputcomprar" data-id="'.$row['GalID'].'" data-facelin="'.$row['GalFacLin'].'" data-user="'.$_SESSION['vmall_iduser'].'" data-title="'.$row['GalTit'].'" data-description="'.$row['GalMaxDes'].'" data-image="userfiles/'.$row['GalImgB'].'" name="inputcomprar" value="Ver M&aacute;s" style="width:142px;"/></label></li>
                     </ul>  
                     </div> 
                 </div>
@@ -85,6 +86,8 @@ error_reporting(E_ALL);
     <script>
         $("#number").chosen();
         $(function() {
+        	$('#btn1 .ballons').text('10');
+        	$('#btn2 .ballons').text('7');
             $("div.holder").jPages({
                 containerID: "itemContainer",
                 previous : "«",
