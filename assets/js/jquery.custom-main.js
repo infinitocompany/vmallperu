@@ -1,11 +1,11 @@
 $(function(){
     //Calendar
-    $(".datepicker").datepick({
+    /*$(".datepicker").datepick({
         minDate:0,
         firstDay: 1,
         dateFormat: 'dd-mm-yyyy'
     });
-
+*/
 });
 
 

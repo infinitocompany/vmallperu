@@ -3,7 +3,7 @@ require_once "conf.php";
 $cn->query("SELECT ConLog, ConSlo, ConFavIco, ConMas, ConFacLnk, ConTwiLnk, ConGooLnk, ConLinLnk, ConSky, ConYou, ConVim FROM itech_configuration");
 session_cache_limiter('nocache,private');
 isset($_SESSION['vmall_session']) ? $session="true" : $session="false";
-/*
+
 if($session=='true')
 {
     $sessionid = session_id(); 
@@ -14,7 +14,7 @@ else
 {
     $rx = array("id"=>"", "user"=>"", "name"=>"");
 }
-*/
+
 ?>
     <!-- Navbar -->
     <header> 

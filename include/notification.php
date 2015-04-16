@@ -21,17 +21,23 @@
                             <div class="col-xs-6 col-sm-6 col-md-6 no-padding">
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label" style="padding-top:10px;">Del</label>
-                                    <div class="col-sm-10">
-                                        <input type="input" id="notification_star" class="datepicker form-control" name="day"  placeholder="Seleccione fecha" autocomplete="off" readonly >
-                                    </div>
+                                    <div class='input-group date'>
+					                    <input style="cursor: pointer; background-color: white;" type='text' readonly="readonly"  id="notification_begin" class="form-control" />
+					                    <span class="input-group-addon">
+					                        <span class="glyphicon glyphicon-calendar"></span>
+					                    </span>
+					                </div>
                                 </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 no-padding">
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label" style="padding-top:10px;">Al</label>
-                                    <div class="col-sm-10">
-                                        <input type="input" id="notification_end" class="datepicker form-control" name="day"  placeholder="Seleccione fecha" autocomplete="off" readonly >
-                                    </div>
+                                    <div class='input-group date'>
+					                    <input style="cursor: pointer; background-color: white;" readonly="readonly" type='text'  id="notification_end" class="form-control" />
+					                    <span class="input-group-addon">
+					                        <span class="glyphicon glyphicon-calendar"></span>
+					                    </span>
+					                </div>
                                 </div>
                             </div>
                             <ul style="padding: 40px 0 0 15px;">
@@ -44,6 +50,24 @@
                     <div class="modal-footer">
                         <a href="JavaScript:void(0);" class="btn btn-default" id="save_notification">
                             <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Guardar Preferencia
+                        </a>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+        
+        <div class="modal fade" id="notification_msg">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        Mensaje
+                    </div>
+                    <div class="modal-body-msg" style="padding: 20px;">
+                    </div>
+                    <div class="modal-footer">
+                        <a href="JavaScript:void(0);" class="btn btn-default close_modal" modalId="notification_msg" id="close_notification">
+                            <span class="glyphicon glyphicons-warning-sign" aria-hidden="true"></span> Aceptar
                         </a>
                     </div>
                 </div><!-- /.modal-content -->

@@ -20,8 +20,10 @@ error_reporting(E_ALL);
         <link href="lib/chosen/chosen.css"rel="stylesheet" type="text/css">
         <link href="lib/jPages/jPages.css"rel="stylesheet" type="text/css">
         <link href="assets/vmallperu/fonts/style.css"rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="assets/css/datepicker.css">
     </head>
     <body>
+   
     <?php include("include/header.php"); ?>
     <?php include("include/menu.php"); ?>
     <!-- Content -->
@@ -80,14 +82,23 @@ error_reporting(E_ALL);
     <script type="text/javascript" src="assets/js/crud_ajax.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.datepick.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.datepick.js"></script>
+    <script type="text/javascript" src="assets/js/customFunctions.js"></script>
     <script type="text/javascript" src="assets/js/jquery.custom-main.js"></script>
     <script type="text/javascript" src="lib/chosen/chosen.jquery.js"></script>
     <script type="text/javascript" src="lib/jPages/jPages.js"></script>
+    <script   type="text/javascript" src="assets/js/bootstrap-datepicker.js"></script>
     <script>
         $("#number").chosen();
         $(function() {
-        	$('#btn1 .ballons').text('10');
+        	$('#btn1 .ballons').text(getNotifications());
         	$('#btn2 .ballons').text('7');
+        	$('#notification_begin').datepicker({
+                format: "yyyy-mm-dd"
+            }); 
+        	$('#notification_end').datepicker({
+        		format: "yyyy-mm-dd"
+            }); 
             $("div.holder").jPages({
                 containerID: "itemContainer",
                 previous : "«",

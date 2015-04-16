@@ -49,5 +49,13 @@ switch($action){
     case 4:
         if (rpHash($_POST['defaultReal']) == $_POST['defaultRealHash']) {echo 'true';}else{echo 'false';}
         break;
+    case 5:
+    	if($cn->query("insert into vmall_notifications (NotDatBeg,NotDatEnd,NotTip,UseId,GalId) values('".$_POST['datBeg']."','".$_POST['datEnd']."','".$_POST['notTyp']."','".$_POST['userId']."','".$_POST['galId']."');")){
+    		echo 'true';
+    	}else{
+    		echo 'false';
+    	}
+    	
+        break;
 }
 ?>

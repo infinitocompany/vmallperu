@@ -17,9 +17,12 @@ ajax = {
        detail();
        close();
        replace();
+       guardarNotification();
+       close_notification();
        //facebooklink();
     }
 };
+
 function message (title, msg, type){
     $('.modal-title').text(title); 
     $('.modal-message').text(msg);
@@ -41,10 +44,17 @@ var pass = function(){
         if(userid.length>0){
             window.location.href = 'catalogos.php';
         }else{
-            message('Acceso a Catálogo','Necesita iniciar sesión, para poder acceder a esta sección.', 1);
+            message('Acceso a Catálogo','Necesita iniciar sesión, para poder acceder a esta sección.', 1,1);
         }        
     });
 };
+var close_notification = function(){
+    $(".close_modal").off().on('click', function (e) {
+    	var id=$(this).attr('modalId');
+    	$('#'+id).modal('hide');
+    });
+};
+
 var modal_register = function(){
     $("#modal_register").off().on('click', function (e) {
         e.preventDefault();
@@ -318,3 +328,68 @@ function redirect()
 {
 	location.href='index.php';
 };
+
+
+var guardarNotification = function () {  
+    $("#save_notification").off().on('click', function (e) {
+        e.preventDefault();
+        var hdDatBeg = $("#notification_begin");
+        var hdDatEnd = $("#notification_end");
+        var hcbEstPro = $("#notification_item");
+        var hcbTienda = $("#notification_store");
+        var hcbTipOfe = $("#notification_type");
+        var sMessages="";
+        var bDataBeg=requeriedInput(hdDatBeg,"placeholder","Debe ingresar la fecha");
+        var bDataEnd=requeriedInput(hdDatEnd,"placeholder","Debe ingresar la fecha");
+        var bEstPro=stateCheckBox(hcbEstPro);
+        var bTienda=stateCheckBox(hcbTienda);
+        var bTipOfe=stateCheckBox(hcbTipOfe);
+        var userId=$("#editUser").val();
+        var galId=$("#editID").val();
+        var msgRespPro="false";
+        var msgTienda="false";
+        var msgTipOfe="false";
+        if(bDataBeg && bDataEnd)
+    	{
+        	if(bEstPro||bTienda||bTipOfe)
+    		{
+        		if(bEstPro)
+    			{
+        			parameter= "notTyp=1"+"&datBeg="+ hdDatBeg.val() + "&datEnd="+ hdDatEnd.val() +  "&userId="+ userId + "&galId="+ galId + "&action=5";
+        			msgRespPro=ajaxAction(parameter);
+        			
+    			}
+        		if(bTienda)
+    			{
+        			parameter= "notTyp=2"+"&datBeg="+ hdDatBeg.val() + "&datEnd="+ hdDatEnd.val() +  "&userId="+ userId + "&galId="+ galId + "&action=5";
+        			msgTienda=ajaxAction(parameter);
+    			}
+        		if(bTipOfe)
+    			{
+        			parameter= "notTyp=3"+"&datBeg="+ hdDatBeg.val() + "&datEnd="+ hdDatEnd.val() +  "&userId="+ userId + "&galId="+ galId + "&action=5";
+        			msgTipOfe=ajaxAction(parameter)+"<br>";
+    			}
+        		
+        		if( msgRespPro=="true"||msgTienda=="true"||msgTipOfe=="true")
+            	{
+            		$('.modal-body-msg').html('Se grabo exitosamente la notificaci&oacute;n');
+            		$("#notification_msg").modal('show');
+            		$("#notification").modal('hide');
+            		
+            	}
+            	else{
+            		$('.modal-body-msg').html('Ocurrio un error comuniquese con el administrador');
+            		$("#notification_msg").modal('show');
+            		$("#notification").modal('hide');
+            	}
+    		}
+        	else
+    		{
+        		$('.modal-body-msg').html('Debe seleccionar al menos un tipo de notificaci&oacute;n');
+        		$("#notification_msg").modal('show');
+    		}
+        	
+        	
+    	}
+    });
+}; 
