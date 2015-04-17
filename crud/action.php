@@ -55,7 +55,50 @@ switch($action){
     	}else{
     		echo 'false';
     	}
-    	
         break;
+     case 6:
+     	$notifications=$cn->getField("select count(*) as numNot from (
+											select ig.GalID
+												from itech_gallery ig
+													inner join itech_gallery_subcategory igs on ig.GalID=igs.GalID
+												where ig.GalSta='1'
+													and DATE_FORMAT(now(), '%Y-%m-%d')<=ig.GalDatEnd
+													and ig.GalId in	(
+																		select DISTINCT vn.GalId
+																			from vmall_notifications vn
+																			where vn.UseId='9' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
+																					and vn.NotTip='1'
+																	)
+											union 
+											select ig.GalID 
+												from itech_gallery ig
+													inner join itech_gallery_subcategory igs on ig.GalID=igs.GalID
+												where ig.GalSta='1'
+													and DATE_FORMAT(now(), '%Y-%m-%d')<=ig.GalDatEnd
+													and ig.TypID in	(
+														select distinct ig.TypId
+															from vmall_notifications vn 
+																inner join itech_gallery as ig on ig.GalId=vn.GalId
+															where vn.UseId='9' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
+																and vn.NotTip='2'
+																
+																	)
+											union 
+											select ig.GalID
+												from itech_gallery ig
+													inner join itech_gallery_subcategory igs on ig.GalID=igs.GalID
+												where ig.GalSta='1'
+													and DATE_FORMAT(now(), '%Y-%m-%d')<=ig.GalDatEnd
+													and igs.SubCatID in	(
+																			select distinct SubCatID 
+																			from vmall_notifications vn 
+																				inner join itech_gallery_subcategory igs on igs.GalID=vn.GalId
+																			where vn.UseId='9' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
+																				and vn.NotTip='3'
+																				)
+											                                    ) as uno
+											where GalID not in (select GalID from notifications_gallery)");
+     		echo $notifications;
+        	break;
 }
 ?>
