@@ -8,7 +8,7 @@
                         <?php $cn->query("SELECT MenID, MenNam, MenLnk, MenPas FROM itech_menu WHERE MenSta='1'");
                         while($row = $cn->fetch()){ 
                             if(mp_unscape($row['MenLnk'])!='collapse' && mp_unscape($row['MenLnk'])!='pass'){
-                                echo '<li><a href="'.mp_unscape($row['MenLnk']).'.php"><div>'.mp_unscape($row['MenNam']).'<img class="img-responsive pull-right" src="assets/img/canvas-content/icono-derecha.jpg" /></div></a></li>';
+                                echo '<li><a href="'.mp_unscape($row['MenLnk']).'"><div>'.mp_unscape($row['MenNam']).'<img class="img-responsive pull-right" src="assets/img/canvas-content/icono-derecha.jpg" /></div></a></li>';
                             }if(mp_unscape($row['MenLnk'])=='pass'){
                                 echo '<li><a href="JavaScript:void(0);" class="pass_'.mp_unscape($row['MenPas']).'"><div>'.mp_unscape($row['MenNam']).'<img class="img-responsive pull-right" src="assets/img/canvas-content/icono-derecha.jpg" /></div></a></li>';
                             }if(mp_unscape($row['MenLnk'])=='collapse'){
@@ -19,7 +19,7 @@
                                 $cn->qry("SELECT SubMenID, SubMenNam, SubMenLnk, SubMenDat FROM itech_submenu WHERE SubMenSta='1' AND MenID='".$row['MenID']."'");
                                 while($rw = $cn->fch()){
                                     if(mp_unscape($rw['SubMenLnk'])!='dropdown'){
-                                        echo '<li><a href="'.mp_unscape($rw['SubMenLnk']).'.php">'.mp_unscape($rw['SubMenNam']).'<img class="img-responsive pull-right" src="assets/img/canvas-content/icono-derecha.jpg" /></a></li>';  
+                                        echo '<li><a href="'.mp_unscape($rw['SubMenLnk']).'">'.mp_unscape($rw['SubMenNam']).'<img class="img-responsive pull-right" src="assets/img/canvas-content/icono-derecha.jpg" /></a></li>';  
                                     }else{
                                         echo '<li class="dropdown dropdown-large opensub" id="'.mp_unscape($rw['SubMenDat']).'"><a href="javascript:void(0);" data-id="'.mp_unscape($rw['SubMenDat']).'" class="dropdown-toggle sub_menu" data-toggle="dropdown">'.mp_unscape($rw['SubMenNam']).'<img class="img-responsive pull-right" src="assets/img/canvas-content/icono-derecha.jpg" /></a>
                                         <ul class="dropdown-menu dropdown-menu-large row box-red-dark dropdown-submenu">';

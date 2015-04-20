@@ -38,3 +38,8 @@ function getNotifications()
 	var id =$("#editUser").val();
 	return ajaxAction("notTyp="+id+"&action=6");
 }
+function getFavorites()
+{
+	var id =$("#editUser").val();
+	return ajaxAction("userId="+id+"&action=9");
+}

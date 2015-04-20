@@ -100,5 +100,26 @@ switch($action){
 											where GalID not in (select GalID from notifications_gallery)");
      		echo $notifications;
         	break;
+        	case 7:
+        		if($cn->query("insert into itech_favorite(GalId,UserId) values('".$_POST['prodId']."','".$_POST['userId']."');")){
+        			echo 'true';
+        		}else{
+        			echo 'false';
+        		}
+        		break;
+        		case 8:
+        			echo "update itech_favorite set StaFav='0' where GalId='".$_POST['prodId']."' and UserId='".$_SESSION['vmall_iduser']."'";
+        			
+        			if($cn->query("update itech_favorite set StaFav='0' where GalId='".$_POST['prodId']."' and UserId='".$_SESSION['vmall_iduser']."';")){
+        				echo 'true';
+        			}else{
+        				echo 'false';
+        			}
+        			
+        			break;
+        			case 9:
+        				$favorites=$cn->getField("select count(*) as numfav from itech_favorite where UserId='".$_SESSION['vmall_iduser']."' and StaFav='1';");
+        				echo $favorites;
+        				break;
 }
 ?>

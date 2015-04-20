@@ -69,16 +69,20 @@ else
                     <li style="width: 60px;">
                     	<div id="buttonsnot">
 						    <div id="btn1" class="btn btnnot">
-						        <span class="ballons"></span>
-						        <img height="30" width="30" src="assets/img/canvas-navbar/icono-configuracion.png"/>
+						    	<a href="index.php?page=notificaciones">
+						        	<span class="ballons"></span>
+						        	<img height="30" width="30" src="assets/img/canvas-navbar/icono-configuracion.png"/>
+						        </a>
 						    </div>
 						</div>
                     </li>
                     <li style="width: 60px;">
                     	<div id="buttonsnot">
 						    <div id="btn2" class="btn btnnot">
+						    <a href="index.php?page=favoritos">
 						        <span class="ballons"></span>
 						        <img height="30" width="30" src="assets/img/canvas-navbar/icono-calificacion.png"/>
+						        </a>
 						    </div>
 						     <input class="hide" type="text" id="userid" value="<?php echo  $_SESSION['vmall_iduser'];?>">
 						</div>

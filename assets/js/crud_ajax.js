@@ -4,6 +4,8 @@ $(document).ready(function() {
 
 ajax = {    
     maintenance: function() {
+    	favoritenot();
+       remove_favorite();
        menu();
        search();
        register();
@@ -127,19 +129,74 @@ var facebooklink = function () {
         
     });
 }; */
+
+var remove_favorite = function () {  
+    $("#remove_favorite").off().on('click', function (e) {
+        e.preventDefault();
+        var product=$("#remove_favorite").attr('value');
+        var user = $("#editUser").val();
+        if(user.length>0){
+        	var msgRespPro="";
+        	parameter= "prodId="+product+"&action=8";
+			msgRespPro=ajaxAction(parameter);
+			reload("favoritos");
+        }else{
+            message('Solicitud de Favorito','Necesita iniciar sesión, para poder procesar su solicitud.', 1);
+        }
+    });
+};
 var favorite = function () {  
     $("#send_favorite").off().on('click', function (e) {
         e.preventDefault();
         var user = $("#editUser").val();
+        var product=$("#editID").val();
         $('#detail').modal('hide');
         if(user.length>0){
-            message('Solicitud de Favorito','Estimado cliente su solicitud fue realizada con exito.', 1);
+        	var msgRespPro="";
+        	parameter= "userId="+user+"&prodId="+product+"&action=7";
+			msgRespPro=ajaxAction(parameter);
+			if(msgRespPro=="true")
+			{
+				message('Solicitud de Favorito','Estimado cliente su solicitud fue realizada con exito.', 1);
+				setTimeout ("redirect()", 3000);
+			}
+			else
+			{
+				message('Solicitud de Favorito','Estimado cliente ocurrio un error, comuniquese con el administrador.', 1);
+			}
+            
         }else{
             message('Solicitud de Favorito','Necesita iniciar sesión, para poder procesar su solicitud.', 1);
         }
     });
 };
 
+var favoritenot = function () {  
+    $(".send_favorites_not").off().on('click', function (e) {
+        e.preventDefault();
+        var product = $(this).attr('data-product-id');
+        var user = $(this).attr('data-user-id');
+        
+        $('#detail').modal('hide');
+        if(user.length>0){
+        	var msgRespPro="";
+        	parameter= "userId="+user+"&prodId="+product+"&action=7";
+			msgRespPro=ajaxAction(parameter);
+			if(msgRespPro=="true")
+			{
+				message('Solicitud de Favorito','Estimado cliente su solicitud fue realizada con exito.', 1);
+				setTimeout ("redirect()", 3000);
+			}
+			else
+			{
+				message('Solicitud de Favorito','Estimado cliente ocurrio un error, comuniquese con el administrador.', 1);
+			}
+            
+        }else{
+            message('Solicitud de Favorito','Necesita iniciar sesión, para poder procesar su solicitud.', 1);
+        }
+    });
+};
 var buy = function () {  
     $("#send_information").off().on('click', function (e) {
         e.preventDefault();
@@ -328,7 +385,10 @@ function redirect()
 {
 	location.href='index.php';
 };
-
+function reload(page)
+{
+	location.href='index.php?page='+page;
+};
 
 var guardarNotification = function () {  
     $("#save_notification").off().on('click', function (e) {
@@ -375,7 +435,7 @@ var guardarNotification = function () {
             		$('.modal-body-msg').html('Se grabo exitosamente la notificaci&oacute;n');
             		$("#notification_msg").modal('show');
             		$("#notification").modal('hide');
-            		
+            		setTimeout ("redirect()", 3000);
             	}
             	else{
             		$('.modal-body-msg').html('Ocurrio un error comuniquese con el administrador');
