@@ -32,7 +32,16 @@
                             <div class="inline pull-left"><h1 class="h1-medium">dscto.</h1></div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 " >
-                            <div class="inline pull-left"><img class="img-responsive" src="assets/img/canvas-content/estrella-calificacion.png" /></div>
+            				<span class="icon-star start-score" id="star1" value="1"></span>
+            				<span class="icon-star start-score" id="star2" value="2"></span>
+            				<span class="icon-star start-score" id="star3" value="3"></span>
+            				<span class="icon-star start-score" id="star4" value="4"></span>
+            				<span class="icon-star start-score" id="star5" value="5"></span>
+            				<input type="hidden" id="calif-star" value=""/>
+            				<div class="inline pull-left">
+            					<img class="img-responsive" src="assets/img/canvas-content/estrella-calificacion.png" />
+            				</div>
+            				
                             <div class="inline  pull-left"><img class="img-responsive" src="assets/img/canvas-content/estrella-calificacion.png" /></div>
                             <div class="inline  pull-left"><img class="img-responsive" src="assets/img/canvas-content/estrella.png" /></div>
                             <div class="inline  pull-left"><img class="img-responsive" src="assets/img/canvas-content/estrella.png" /></div>

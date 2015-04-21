@@ -50,6 +50,7 @@ switch($action){
         if (rpHash($_POST['defaultReal']) == $_POST['defaultRealHash']) {echo 'true';}else{echo 'false';}
         break;
     case 5:
+		//echo "insert into vmall_notifications (NotDatBeg,NotDatEnd,NotTip,UseId,GalId) values('".$_POST['datBeg']."','".$_POST['datEnd']."','".$_POST['notTyp']."','".$_POST['userId']."','".$_POST['galId']."');";
     	if($cn->query("insert into vmall_notifications (NotDatBeg,NotDatEnd,NotTip,UseId,GalId) values('".$_POST['datBeg']."','".$_POST['datEnd']."','".$_POST['notTyp']."','".$_POST['userId']."','".$_POST['galId']."');")){
     		echo 'true';
     	}else{
@@ -66,7 +67,7 @@ switch($action){
 													and ig.GalId in	(
 																		select DISTINCT vn.GalId
 																			from vmall_notifications vn
-																			where vn.UseId='9' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
+																			where vn.UseId='".$_SESSION['vmall_iduser']."' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
 																					and vn.NotTip='1'
 																	)
 											union 
@@ -79,7 +80,7 @@ switch($action){
 														select distinct ig.TypId
 															from vmall_notifications vn 
 																inner join itech_gallery as ig on ig.GalId=vn.GalId
-															where vn.UseId='9' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
+															where vn.UseId='".$_SESSION['vmall_iduser']."' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
 																and vn.NotTip='2'
 																
 																	)
@@ -93,11 +94,11 @@ switch($action){
 																			select distinct SubCatID 
 																			from vmall_notifications vn 
 																				inner join itech_gallery_subcategory igs on igs.GalID=vn.GalId
-																			where vn.UseId='9' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
+																			where vn.UseId='".$_SESSION['vmall_iduser']."' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
 																				and vn.NotTip='3'
 																				)
 											                                    ) as uno
-											where GalID not in (select GalID from notifications_gallery)");
+											where GalID not in (select GalID from notifications_gallery where UseId='".$_SESSION['vmall_iduser']."')");
      		echo $notifications;
         	break;
         	case 7:
@@ -118,8 +119,57 @@ switch($action){
         			
         			break;
         			case 9:
-        				$favorites=$cn->getField("select count(*) as numfav from itech_favorite where UserId='".$_SESSION['vmall_iduser']."' and StaFav='1';");
+        				$favorites=$cn->getField("SELECT count(*) as numfav FROM (select DISTINCT itg.GalID,itg.GalTit,itg.GalDatSta,itg.GalDatEnd,itt.TypNam
+							 from itech_favorite itf
+								inner join itech_gallery itg on itf.GalId=itg.GalID
+							    inner join itech_type itt on itg.TypID=itt.TypID
+							where 
+								UserId='".$_SESSION['vmall_iduser']."' 
+							    and StaFav='1'
+								and itg.GalID in (select distinct GalId from itech_favorite where UserId='".$_SESSION['vmall_iduser']."' )
+							
+							) AS t");
         				echo $favorites;
+        			break;
+        			case 10:
+        				$cadres="";
+        				$cadres.= '
+        					<tr>
+        					<th style="width: 30%">Oferta</th>
+        					<th style="width: 10%">Fecha publicaci&oacute;n</th>
+        					<th style="width: 10%">Vigencia</th>
+        					<th style="width: 30%">Ofertante</th>
+        					<th style="width: 20%">Opciones</th>
+        					</tr>';
+        				if(isset($_SESSION['vmall_iduser']))
+        				{
+        					$cadres.= '<input type="text" id="editUser" value="'.$_SESSION['vmall_iduser'].'" class="hide"/>';
+        				}
+        				else
+        				{
+        					$cadres.= '<input type="text" id="editUser" value="" class="hide"/>';
+        				}
+        				$cn->query("select DISTINCT itg.GalID,itg.GalTit,itg.GalDatSta,itg.GalDatEnd,itt.TypNam
+			 								from itech_favorite itf
+												inner join itech_gallery itg on itf.GalId=itg.GalID
+			    								inner join itech_type itt on itg.TypID=itt.TypID
+											where
+												UserId='".$_SESSION['vmall_iduser']."'
+    											and StaFav='1'
+												and itg.GalID in (select distinct GalId from itech_favorite where UserId='".$_SESSION['vmall_iduser']."' )");
+        															
+							while($row = $cn->fetch()){
+        						$cadres.= '<tr>
+            							<td>'.$row['GalTit'].'</td>
+	            						<td>'.$row['GalDatSta'].'</td>
+				            			<td>'.$row['GalDatEnd'].'</td>
+	            						<td>'.$row['TypNam'].'</td>
+										<td >
+											<a href="index.php?page=mostrarproducto&notificacion=true&producto='.$row['GalID'].'">Ver mas</a> <a href="#" value="'.$row['GalID'].'" id="remove_favorite" > <span  style="font-size:x-large;color:#ff9c00;" class="icon-star"></span></a>
+										</td>
+            							</tr>';
+        					}
+        					echo $cadres;
         				break;
 }
 ?>

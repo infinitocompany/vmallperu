@@ -37,7 +37,7 @@ select ig.GalID
 		and ig.GalId in	(
 							select DISTINCT vn.GalId
 								from vmall_notifications vn
-								where vn.UseId='9' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
+								where vn.UseId='".$_SESSION['vmall_iduser']."' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
 										and vn.NotTip='1'
 						)
 union 
@@ -50,7 +50,7 @@ select ig.GalID
 			select distinct ig.TypId
 				from vmall_notifications vn 
 					inner join itech_gallery as ig on ig.GalId=vn.GalId
-				where vn.UseId='9' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
+				where vn.UseId='".$_SESSION['vmall_iduser']."' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
 					and vn.NotTip='2'
 					
 						)
@@ -64,11 +64,11 @@ select ig.GalID
 								select distinct SubCatID 
 								from vmall_notifications vn 
 									inner join itech_gallery_subcategory igs on igs.GalID=vn.GalId
-								where vn.UseId='9' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
+								where vn.UseId='".$_SESSION['vmall_iduser']."' and DATE_FORMAT(now(), '%Y-%m-%d')  between vn.NotDatBeg and vn.NotDatEnd 
 									and vn.NotTip='3'
 									)
                                     ) as uno
-where GalID not in (select GalID from notifications_gallery)
+where GalID not in (select GalID from notifications_gallery where UseId='".$_SESSION['vmall_iduser']."')
 )
 order by 1 desc");
             	$aGalIds="";

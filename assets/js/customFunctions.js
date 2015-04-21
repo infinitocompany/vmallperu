@@ -33,6 +33,21 @@ function ajaxAction(parameter)
      });
 	 return resp;
 }
+function ajaxReload(page)
+{
+	alert(page);
+	var resp="";
+	 $.ajax({
+        type: "POST",
+        async:false, 
+        url: "include/"+page+".php",
+        data: parameter,
+        success: function (msg) {
+            $('#content').text(msg);    
+        }        
+    });
+	 return resp;
+}
 function getNotifications()
 {
 	var id =$("#editUser").val();

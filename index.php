@@ -27,7 +27,7 @@ error_reporting(E_ALL);
     <?php include("include/header.php"); ?>
     <?php include("include/menu.php"); ?>
     
-    
+   <div id="content"> 
     <?php 
     
     if(isset($_GET['page']))
@@ -42,7 +42,7 @@ error_reporting(E_ALL);
     
     
     ?>
-    
+    </div>
     <?php include("include/modal.php");?>
     <?php include("include/notification.php");?>
     <?php include("include/detail.php");?>

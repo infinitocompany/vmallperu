@@ -16,7 +16,7 @@
         <div class="row content">
         
         
-            <table class="table table-bordered table-hover">
+            <table id="tabfavorites" class="table table-bordered table-hover">
             	<tr>
             		<th style="width: 30%">Oferta</th>
             		<th style="width: 10%">Fecha publicaci&oacute;n</th>
@@ -32,11 +32,14 @@
             	else {
             		echo '<input type="text" id="editUser" value="" class="hide"/>';
             	}
-            	$cn->query("select ig.GalID,ig.GalTit,ig.GalDatSta,ig.GalDatEnd,it.TypNam
-from itech_gallery ig
-	inner join itech_type it on ig.TypID=it.TypID
-where  ig.GalID in (select distinct GalId from itech_favorite where StaFav='1' and UserId='".$_SESSION['vmall_iduser']."')
-order by 1 desc");
+            	$cn->query("select DISTINCT itg.GalID,itg.GalTit,itg.GalDatSta,itg.GalDatEnd,itt.TypNam
+ from itech_favorite itf
+	inner join itech_gallery itg on itf.GalId=itg.GalID
+    inner join itech_type itt on itg.TypID=itt.TypID
+where 
+	UserId='".$_SESSION['vmall_iduser']."' 
+    and StaFav='1'
+	and itg.GalID in (select distinct GalId from itech_favorite where UserId='".$_SESSION['vmall_iduser']."' )");
             	$aGalIds="";
 		        while($row = $cn->fetch()){
 		        	echo '<tr>
@@ -45,7 +48,7 @@ order by 1 desc");
 	            			<td>'.$row['GalDatEnd'].'</td>
 	            			<td>'.$row['TypNam'].'</td>
 							<td >
-								<a href="index.php?page=mostrarproducto&notificacion=true&producto='.$row['GalID'].'">Ver mas</a> <span id="remove_favorite" value="'.$row['GalID'].'" style="font-size:x-large;color:#ff9c00;" class="icon-star"></span>
+								<a href="index.php?page=mostrarproducto&notificacion=true&producto='.$row['GalID'].'">Ver mas</a> <a href="#" value="'.$row['GalID'].'" class="remove_favorite" > <span   style="font-size:x-large;color:#ff9c00;" class="icon-star"></span></a>
 							</td>
             			</tr>';
 		        }

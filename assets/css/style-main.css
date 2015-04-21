@@ -602,3 +602,11 @@ background-color: transparent;
 .classplaceerror:-moz-placeholder { color: red; font-weight: bold; }
 .classplaceerror::-moz-placeholder { color: red; font-weight: bold; }
 .classplaceerror:-ms-input-placeholder { color: red; font-weight: bold;}
+
+.start-score-selected{
+	color: #ECDE33;
+}
+.start-score{
+	color: #CCCCCC;
+
+}

@@ -156,7 +156,6 @@ else
                     </div>
                     <div class="modal-body">
                     	<br>
-                        <div class="modal-image" style="float:left;margin-right:10px;"></div>
                         <div class="modal-description" style="float:rigth;"></div>
                         <br>
                     </div>

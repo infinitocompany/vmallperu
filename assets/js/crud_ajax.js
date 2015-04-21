@@ -21,8 +21,32 @@ ajax = {
        replace();
        guardarNotification();
        close_notification();
+       startcalification();
+       startcalificationout();
        //facebooklink();
     }
+};
+var startcalification = function(){
+    $(".start-score").off().on('mouseover', function (e) {	
+        e.preventDefault();
+        $(this).removeClass('start-score');
+        $(this).addClass('start-score-selected');
+    });
+};
+
+var startcalificationout = function(){
+    $(".start-score").off().on('mouseout', function (e) {	
+        e.preventDefault();
+        alert('1');
+        var valStar=$('#calif-star').val();
+        /*
+        for(i=1;i<=valStar;i++)
+        {
+        	$("#start"+i).removeClass('start-score-selected');
+        	$("#start"+i).addClass('start-score');
+        }
+        */
+    });
 };
 
 function message (title, msg, type){
@@ -131,15 +155,17 @@ var facebooklink = function () {
 }; */
 
 var remove_favorite = function () {  
-    $("#remove_favorite").off().on('click', function (e) {
+    $(".remove_favorite").off().on('click', function (e) {
         e.preventDefault();
-        var product=$("#remove_favorite").attr('value');
+        var product=$(this).attr('value');
         var user = $("#editUser").val();
         if(user.length>0){
         	var msgRespPro="";
         	parameter= "prodId="+product+"&action=8";
 			msgRespPro=ajaxAction(parameter);
-			reload("favoritos");
+			$('#btn1 .ballons').text(getNotifications());
+        	$('#btn2 .ballons').text(getFavorites());
+			$(this).parent().parent().remove(); 
         }else{
             message('Solicitud de Favorito','Necesita iniciar sesión, para poder procesar su solicitud.', 1);
         }
@@ -157,8 +183,9 @@ var favorite = function () {
 			msgRespPro=ajaxAction(parameter);
 			if(msgRespPro=="true")
 			{
-				message('Solicitud de Favorito','Estimado cliente su solicitud fue realizada con exito.', 1);
-				setTimeout ("redirect()", 3000);
+				messageTpl('Solicitud de Favorito','Estimado cliente su solicitud fue realizada con exito.', '','tplmsg');
+				$('#btn1 .ballons').text(getNotifications());
+	        	$('#btn2 .ballons').text(getFavorites());
 			}
 			else
 			{
@@ -184,12 +211,14 @@ var favoritenot = function () {
 			msgRespPro=ajaxAction(parameter);
 			if(msgRespPro=="true")
 			{
-				message('Solicitud de Favorito','Estimado cliente su solicitud fue realizada con exito.', 1);
-				setTimeout ("redirect()", 3000);
+				messageTpl('Solicitud de Favorito','Estimado cliente su solicitud fue realizada con exito.', '','tplmsg');
+				$('#btn1 .ballons').text(getNotifications());
+	        	$('#btn2 .ballons').text(getFavorites());
+
 			}
 			else
 			{
-				message('Solicitud de Favorito','Estimado cliente ocurrio un error, comuniquese con el administrador.', 1);
+				messageTpl('Solicitud de Favorito','Estimado cliente ocurrio un error, comuniquese con el administrador.', '','tplmsg');
 			}
             
         }else{
@@ -435,7 +464,8 @@ var guardarNotification = function () {
             		$('.modal-body-msg').html('Se grabo exitosamente la notificaci&oacute;n');
             		$("#notification_msg").modal('show');
             		$("#notification").modal('hide');
-            		setTimeout ("redirect()", 3000);
+            		$('#btn1 .ballons').text(getNotifications());
+                	$('#btn2 .ballons').text(getFavorites());
             	}
             	else{
             		$('.modal-body-msg').html('Ocurrio un error comuniquese con el administrador');
