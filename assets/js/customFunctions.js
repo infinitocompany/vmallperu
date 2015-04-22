@@ -58,3 +58,9 @@ function getFavorites()
 	var id =$("#editUser").val();
 	return ajaxAction("userId="+id+"&action=9");
 }
+
+function getRating()
+{
+	var idProduct =$("#productId").val();
+	return ajaxAction("idProduct="+idProduct+"&action=12");
+}

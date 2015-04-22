@@ -24,6 +24,7 @@ ajax = {
        startcalification();
        startcalificationout();
        //facebooklink();
+       notificationmos();
     }
 };
 var startcalification = function(){
@@ -134,6 +135,20 @@ var notification = function () {
         }
     });
 }; 
+var notificationmos = function () {  
+    $("#send_notificationmos").off().on('click', function (e) {
+        e.preventDefault();
+        var user = $("#userId").val();
+        alert(user);
+        $('#detail').modal('hide');
+        if(user.length>0)
+        {
+            $('#notification').modal('show');
+        }else{
+            message('Solicitud de Notificación','Necesita iniciar sesión, para poder procesar su solicitud.', 1);
+        }
+    });
+}; 
 
 /*
 var facebooklink = function () {  
@@ -152,8 +167,8 @@ var facebooklink = function () {
         }
         
     });
-}; */
-
+}; 
+*/
 var remove_favorite = function () {  
     $(".remove_favorite").off().on('click', function (e) {
         e.preventDefault();

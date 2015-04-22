@@ -51,7 +51,7 @@ switch($action){
         break;
     case 5:
 		//echo "insert into vmall_notifications (NotDatBeg,NotDatEnd,NotTip,UseId,GalId) values('".$_POST['datBeg']."','".$_POST['datEnd']."','".$_POST['notTyp']."','".$_POST['userId']."','".$_POST['galId']."');";
-    	if($cn->query("insert into vmall_notifications (NotDatBeg,NotDatEnd,NotTip,UseId,GalId) values('".$_POST['datBeg']."','".$_POST['datEnd']."','".$_POST['notTyp']."','".$_POST['userId']."','".$_POST['galId']."');")){
+    	if($cn->query("insert into vmall_notifications (NotDatBeg,NotDatEnd,NotTip,UseId,GalId) values('".$_POST['datBeg']."','".$_POST['datEnd']."','".$_POST['notTyp']."','".$_SESSION['vmall_iduser']."','".$_POST['galId']."');")){
     		echo 'true';
     	}else{
     		echo 'false';
@@ -109,8 +109,6 @@ switch($action){
         		}
         		break;
         		case 8:
-        			echo "update itech_favorite set StaFav='0' where GalId='".$_POST['prodId']."' and UserId='".$_SESSION['vmall_iduser']."'";
-        			
         			if($cn->query("update itech_favorite set StaFav='0' where GalId='".$_POST['prodId']."' and UserId='".$_SESSION['vmall_iduser']."';")){
         				echo 'true';
         			}else{
@@ -171,5 +169,44 @@ switch($action){
         					}
         					echo $cadres;
         				break;
+        				case 11:
+        					$GalAcuCal=0;
+        					$GalCanCal=0;
+        					$cn->query("select GalAcuCal,GalCanCal  from itech_gallery where GalID='".$_POST['prodId']."'");
+        					while($row = $cn->fetch()){
+        						$GalAcuCal=$row['GalAcuCal'];
+        						$GalCanCal=$row['GalCanCal'];
+        					}
+        					$GalAcuCal+=$_POST['rating'];
+        					$GalCanCal+=1;
+        					
+        					if($cn->query("update itech_gallery  set GalAcuCal='".$GalAcuCal."',GalCanCal='".$GalCanCal."' where GalID='".$_POST['prodId']."'")){
+        						echo 'true';
+        					}else{
+        						echo 'false';
+        					}
+        					 
+        					break;
+        					case 12:
+        						$GalAcuCal=0;
+        						$GalCanCal=0;
+        						$idProduct=$_POST['idProduct'];
+        						$cn->query("select GalAcuCal,GalCanCal  from itech_gallery where GalID='".$idProduct."'");
+        						$i=0;
+        						while($row = $cn->fetch())
+        						{
+        							$GalAcuCal=$row['GalAcuCal'];
+        							$GalCanCal=$row['GalCanCal'];
+        							
+        						}
+        						if($GalCanCal>0)
+        						{
+        							echo $GalAcuCal/$GalCanCal;
+        						}
+        						else
+        						{
+        							echo "0";
+        						}
+        						break;
 }
 ?>

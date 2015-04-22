@@ -6,22 +6,47 @@
                     <span class="arrowNext"></span>
                 </div>
             <ul id="offer">
-            <?php    
-            $cn->query("SELECT GalID, TypNam, GalTit, GalMinDes, GalMaxDes, GalImg, GalImgA, GalImgB, GalImgC, GalImgD, GalImgE, GalTexDis, GalSta, CouAbr, GalPriCur, GalPriOff, GalFav, GalDatEnd FROM itech_gallery AS g, itech_country AS c, itech_type AS t WHERE GalSta='1' AND GalPro='1' AND g.CouID=c.CouID AND g.TypID=t.TypID ORDER BY GalTit ASC LIMIT 3");
+            <?php
+            $idProducto="";    
+            if(isset($_GET['producto']))
+            {
+            	$idProducto=$_GET['producto'];
+            }
+            $cn->query("SELECT GalID, TypNam, GalTit, GalMinDes, GalMaxDes, GalImg, 
+							GalImgA, GalImgB, GalImgC, GalImgD, GalImgE, GalTexDis, 
+							GalSta, CouAbr, GalPriCur, GalPriOff, GalFav, GalDatEnd, GalAcuCal, GalCanCal,GalFacLin  
+						FROM itech_gallery AS g, itech_country AS c, itech_type AS t 
+						WHERE GalSta='1'
+							AND GalPro='1'
+						    AND g.CouID=c.CouID 
+							AND g.TypID=t.TypID 
+						ORDER BY GalTit ASC LIMIT 3");
+            $GalID="";
             while($row = $cn->fetch()){
+            	$GalID=$row['GalID'];
+            	
+            	$GalAcuCal=$row['GalAcuCal'];
+            	$GalCanCal=$row['GalCanCal'];
+            	$rating=0;
+            	if($GalCanCal>0)
+            	{
+            		$rating=$GalAcuCal/$GalCanCal;
+            	}
                 echo '<li>
                 <div class="col-xs-12 col-sm-12 col-md-6">
                     <div class="row"></br>
                         <div class="col-xs-12 col-sm-12 col-md-12 " >
+							<input type="hidden" id="productId" value="'.$row['GalID'].'">
+            				<input type="hidden" id="userId" value="'.$_SESSION['vmall_iduser'].'">
+                			<input type="hidden" id="productId" value="'.$row['GalID'].'">
+                    		<input type="hidden" id="editID" value="'.$row['GalID'].'">
+							<input type="hidden" id="editUser" value="'.$_SESSION['vmall_iduser'].'">
+            				<input type="hidden" id="ratingProduct" value="'.$rating.'">
                             <div class="inline pull-left"><h1 class="h1-huge">'.$row['GalTexDis'].'</h1></div>
                             <div class="inline pull-left"><h1 class="h1-medium">dscto.</h1></div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 " >
-                            <div class="inline pull-left"><img class="img-responsive" src="assets/img/canvas-content/estrella-calificacion.png" /></div>
-                            <div class="inline  pull-left"><img class="img-responsive" src="assets/img/canvas-content/estrella-calificacion.png" /></div>
-                            <div class="inline  pull-left"><img class="img-responsive" src="assets/img/canvas-content/estrella.png" /></div>
-                            <div class="inline  pull-left"><img class="img-responsive" src="assets/img/canvas-content/estrella.png" /></div>
-                            <div class="inline  pull-left"><img class="img-responsive" src="assets/img/canvas-content/estrella.png" /></div>
+            				<div id="jRate" style="height:50px;width: 200px;"></div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 box-offer-left-desc"></br>
                             <h3>'.$row['GalTit'].'</h3>
@@ -43,10 +68,10 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 ">
                             <div class="btn-toolbar" role="toolbar">
                                 <div class="btn-group">
-                                    <a href="JavaScript:void(0);" class="btn btn-primary" id="send_facebook">
+                                    <a href="'.$row['GalFacLin'].'" target="_blank" class="btn btn-primary" id="send_facebook">
                                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span> Me gusta
                                     </a>
-                                    <a href="JavaScript:void(0);" class="btn btn-info" id="send_notification">
+                                    <a href="JavaScript:void(0);" class="btn btn-info" id="send_notificationmos">
                                         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Notificar
                                     </a>
                                     <a href="JavaScript:void(0);" class="btn btn-warning" id="send_favorite">
@@ -147,9 +172,22 @@
                 </div><!--.Carousel--></div>
                 </div>
             </li>';
+                
+            }
+            if(isset($_GET['notificacion']))
+            {
+            	if($_GET['notificacion']=='true')
+            	{
+            		if($cn->query("insert into notifications_gallery (GalId,UseId) values('".$GalID."','".$_SESSION['vmall_iduser']."')")){
+            			//echo 'true';
+            		}else{
+            			//echo 'false';
+            		}
+            	}
             }
             ?>
         </ul>
         <div class="holder"></div>
-        </div>        
+        </div>       
+         
     <!-- /Content -->

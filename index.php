@@ -48,12 +48,14 @@ error_reporting(E_ALL);
     <?php include("include/detail.php");?>
     <?php include("include/footer.php");?>
     </body>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/crud_ajax.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.datepick.js"></script>
     <script type="text/javascript" src="assets/js/jquery.datepick.js"></script>
     <script type="text/javascript" src="assets/js/customFunctions.js"></script>
+    <script type="text/javascript" src="assets/js/jRate.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.custom-main.js"></script>
     <script type="text/javascript" src="lib/chosen/chosen.jquery.js"></script>
     <script type="text/javascript" src="lib/jPages/jPages.js"></script>
@@ -61,6 +63,21 @@ error_reporting(E_ALL);
     <script>
         $("#number").chosen();
         $(function() {
+        	$("#jRate").jRate({
+				rating: getRating(),
+				strokeColor: 'red',
+				width: 40,
+				height: 40,
+				precision: 0.5,
+				minSelected: 0,
+				strokeWidth: '10px',
+				onChange: function(rating) {
+				},
+				onSet: function(rating) {
+					ajaxAction("prodId="+$("#productId").val()+"&action=11&rating="+rating);
+				}
+        	}
+			);
         	$('#btn1 .ballons').text(getNotifications());
         	$('#btn2 .ballons').text(getFavorites());
         	$('#notification_begin').datepicker({
