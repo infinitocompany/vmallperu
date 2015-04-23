@@ -23,7 +23,7 @@
         <div class="row content">
             <ul id="itemContainer">
         <?php    
-        $cn->query("SELECT GalID, GalTit, GalMinDes, GalMaxDes, GalImgA, GalImgB, GalSta, CouAbr, GalPriCur, GalPriOff, GalTexDis, GalFav,GalFacLin FROM itech_gallery AS g, itech_country AS c WHERE GalSta='1' AND g.CouID=c.CouID AND Date_format(now(),'%d/%m/%Y') BETWEEN g.GalDatSta AND g.GalDatEnd ORDER BY GalTit ASC");
+        $cn->query("SELECT GalID, GalTit, GalMinDes, GalMaxDes, GalImgA, GalImgB, GalSta, CouAbr, GalPriCur, GalPriOff, GalTexDis, GalFav, GalFacLin FROM itech_gallery AS g, itech_country AS c WHERE GalSta='1' AND g.CouID=c.CouID AND Date_format(now(),'%d/%m/%Y') BETWEEN g.GalDatSta AND g.GalDatEnd ORDER BY GalTit ASC");
         while($row = $cn->fetch()){    
             echo '<li><div class="col-xs-12 col-sm-4 col-md-4">
                 <div class="box-item-index box-red-gradient">
